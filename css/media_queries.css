@@ -20,10 +20,20 @@
         text-align: center;
     }
 
+    p{
+        font-size: 1rem;
+    }
+
     .front-page .title{
         /* margin-left: 10rem; */
         position: relative;
         top: 15%;
+    }
+
+    .front-page .title h1{
+        /* position: relative;
+        left: -1.5rem; */
+        font-size: 10rem;
     }
 
     .front-page .title h2{
@@ -69,6 +79,12 @@
 }
 
 @media (max-width: 768px){
+    .front-page .title h1{
+        position: relative;
+        left: -1.5rem;
+        font-size: 8rem;
+    }
+
     .reviews{
         grid-template-rows: none;
         height: auto !important;
@@ -76,6 +92,7 @@
     }
     .reviews .review-card{
         grid-column: 2 /span 10;
+        height: 55%;
         /* background-color: red; */
     }
     

@@ -142,7 +142,7 @@ section{
 }
 
 section .section-text{
-    grid-column: span 5 ;
+    grid-column: span 5;
     align-self: center;
     margin-inline: 10%;
 }
@@ -155,13 +155,16 @@ section .section-img img{
 }
 
 .sinopsis .section-img img{
-    width: 100%;
-    bottom: 15rem;
+    width: 50%;
+    top: 3rem;
+    /* bottom: 15rem; */
 }
 .inspiration .section-img img{
-    width: 150%;
+    /* width: 150%;
     right: 8rem;
-    bottom: 15rem;
+    bottom: 15rem; */
+    width: 50%;
+    top: 3rem;
 }
 
 .buy .section-img img{
