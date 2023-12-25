@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cormorant+Garamond:wght@500;700&family=Gabarito:wght@400;600&family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cormorant+Garamond:wght@500;700&display=swap');
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gabarito', sans-serif;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+}
+
+header{
+    padding: 20px 40px;
+    align-items: center;
+    /* position: fixed; */
+    /* justify-self: center; */
+}
+
+header nav{
+    grid-column: span 12;
+    justify-self: center;
+    /* justify-content: space-evenly; */
+}
+
+a{
+    color: grey;
+    text-decoration: none;
+    margin: 1.5rem;
+}
+
+p{
+    line-height: 1.5rem;
+}
+
+body{
+    background-color: #FAFAF0; 
+}
+
+main{
+    /* max-width: 1200px; */
+/*     margin: 0px auto; */
+    margin: 0;
+/*     padding: 20px; */
+}
+
+.front-page{
+    /* background-image: url(../img/book_mockup_front_page.jpg); */
+    background-image: url(../img/book_mockup_1.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    grid-column: 1/span 11;
+    /* grid-column: span 12; */
+    /* position: relative;
+    right: 6rem; */
+    height: 95vh;
+    /* background-position-x: 100px; */
+    background-position-x: 150px; /* Jugar con esto en los media queries */
+    background-position-y: -160px ;
+}
+
+.front-page .title{
+    margin-left: 10rem;
+    position: relative;
+    top: 30%;
+}
+
+section h2{
+    font-family: 'Garamond', serif;
+    font-weight: 100;
+    font-size: 3rem;
+    text-transform: uppercase;
+    align-self: center;
+    letter-spacing: 0.5rem;
+    /* margin-top: 5rem; */
+    color: #6d7177;
+    /* color: #5a73a1; */
+}
+
+section p{
+    color: #6d7177;
+}
+
+.front-page .title h2{
+    font-size: 2rem;
+    line-height: 0.2rem;
+}
+
+.front-page h1{
+    font-size: 3rem;
+}
+
+.container{
+    grid-column: span 12;
+    height: 100vh !important;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.sinopsis, .reviews{
+    background-color: #eeeade;
+    /* background-color: #d3def3; */
+
+}
+
+section{
+    text-align: center;
+}
+
+section .section-text{
+    grid-column: span 5 ;
+    align-self: center;
+    margin-inline: 10%;
+}
+section .section-img{
+    grid-column: span 7;
+    overflow: hidden;
+}
+section .section-img img{
+    position: relative;
+}
+
+.sinopsis .section-img img{
+    width: 100%;
+    bottom: 15rem;
+}
+.inspiration .section-img img{
+    width: 150%;
+    right: 8rem;
+    bottom: 15rem;
+}
+
+.buy .section-img img{
+    width: 150%;
+    right: 12rem;
+    bottom: 8rem;
+}
+
+.reviews{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100px 80%;
+    grid-column: span 12;
+    padding-inline: 100px;
+    height: 100vh;
+    /* justify-content: space-between !important; */
+}
+
+.reviews-title{
+    grid-column: span 12;
+    justify-self: center;
+    align-self: center;
+}
+
+.reviews .review-card{
+    grid-column: span 4;
+    /* width: 300px; */
+    height: 70%;
+    background-color: #FAFAF0;
+    margin: 2rem 0;
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 50px 1fr;
+    justify-items: center;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.reviews .review-card .rc-photo{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.reviews .review-card .ph_1{
+    background-image: url(../img/lector_1.jpg);
+    background-size: cover;
+}
+.reviews .review-card .ph_2{
+    background-image: url(../img/lector_2.jpg);
+    background-size: cover;
+}
+.reviews .review-card .ph_3{
+    background-image: url(../img/lector_3.jpg);
+    background-size: cover;
+}
+
+.reviews .review-card p{
+    width: 70%;
+}
+
+footer{
+    grid-column: span 12;
+    height: 20vh;
+    background-color: #eeeade;
+}
