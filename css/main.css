@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cormorant+Garamond:wght@500;700&family=Gabarito:wght@400;600&family=Prata&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cormorant+Garamond:wght@500;700&display=swap');
+@font-face{
+    font-family: 'MrsSaintDelafield-Regular';
+    src: url(../fonts/MrsSaintDelafield-Regular.ttf);
+}
 
 html, body{
     margin: 0;
@@ -34,6 +38,9 @@ a{
 
 p{
     line-height: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 100;
+    opacity: 80%;
 }
 
 body{
@@ -49,23 +56,38 @@ main{
 
 .front-page{
     /* background-image: url(../img/book_mockup_front_page.jpg); */
-    background-image: url(../img/book_mockup_1.jpg);
+    /* background-image: url(../img/book_mockup_1.jpg); */
+    background: linear-gradient(to bottom, transparent, #f0eae0), url(../img/book_mockup_1.jpg); 
     background-size: cover;
-    background-repeat:no-repeat;
-    grid-column: 1/span 11;
+    background-repeat: no-repeat;
+    grid-column: 2/span 10;
     /* grid-column: span 12; */
     /* position: relative;
     right: 6rem; */
     height: 95vh;
     /* background-position-x: 100px; */
-    background-position-x: 150px; /* Jugar con esto en los media queries */
-    background-position-y: -160px ;
+    /* background-position-x: 150px; */ 
+    /* Jugar con esto en los media queries */
+    /* background-position-y: -120px ; */
+}
+    
+.front-page .title{
+    /* margin-left: 10rem; */
+    position: relative;
+    top: 15%;
 }
 
-.front-page .title{
-    margin-left: 10rem;
-    position: relative;
-    top: 30%;
+.front-page .title h1{
+    font-family: 'MrsSaintDelafield-Regular';
+    font-size: 14rem;
+    line-height: 0.1rem;
+    color: #70552c;
+    text-shadow: 2px 5px 15px rgba(255,255,255,0.2);
+    font-weight: 100;
+}
+
+.front-page .title p{
+    line-height: 0.1rem;
 }
 
 section h2{
@@ -82,6 +104,14 @@ section h2{
 
 section p{
     color: #6d7177;
+}
+
+.buy-btn{
+    background-color: #d4a763;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
 .front-page .title h2{

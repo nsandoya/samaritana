@@ -20,6 +20,20 @@
         text-align: center;
     }
 
+    .front-page .title{
+        /* margin-left: 10rem; */
+        position: relative;
+        top: 15%;
+    }
+
+    .front-page .title h2{
+        width: 70%;
+        font-size: 1.5rem;
+        margin-inline: auto;
+        line-height: 2.2rem;
+        justify-self: center;
+    }
+
     section .section-text{
         align-self:first baseline;
   /*       margin: 0 15%; */
@@ -64,4 +78,5 @@
         grid-column: 2 /span 10;
         /* background-color: red; */
     }
+    
 }
