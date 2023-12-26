@@ -15,14 +15,14 @@
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                 </svg>
             </a>
-            <a href="#">Inicio</a>
-            <a href="#">Sinopsis</a>
-            <a href="#">Inspiración</a>
-            <a href="#">Reviews</a>
-            <a href="#" class="buy-btn nav-btn">Comprar</a>
+            <a href="#home">Inicio</a>
+            <a href="#sinopsis">Sinopsis</a>
+            <a href="#inspiration">Inspiración</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#buy" class="buy-btn nav-btn">Comprar</a>
         </nav>
     </header> 
-    <main class="grid">
+    <main id="home" class="grid">
         <section class="front-page">
             <div class="title">
                 <h2>Fátima Martínez</h2>
@@ -33,7 +33,7 @@
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
             </svg>
         </section>
-        <section class="grid container sinopsis"> <!-- Sinopsis brvee / Descripción del libro -->
+        <section id="sinopsis" class="grid container sinopsis"> <!-- Sinopsis brvee / Descripción del libro -->
             <div class="section-text">
                 <h2>Sinopsis</h2>
                 <p>"Samaritana" es un testimonio valiente y honesto de la experiencia familiar dentro de un mundo roto. <br> Este libro expone el dolor de las relaciones fallidas, y la esperanza que brota como agua en el desierto de la soledad gracias a un encuentro inesperado con Jesús.</p>
@@ -42,7 +42,7 @@
                 <img src="./img/buy.jpg" alt="">
             </div>
         </section>
-        <section class="grid container inspiration"> <!-- Inspiración del autor, motivación del lector -->
+        <section id="inspiration" class="grid container inspiration"> <!-- Inspiración del autor, motivación del lector -->
             <div class="section-text">
                 <h2>Inspiración</h2>
                 <p><i>Samaritana</i> es un testimonio valiente y honesto de la experiencia familiar dentro de un mundo roto. <br> Este libro expone el dolor de las relaciones fallidas, y la esperanza que brota como agua en el desierto de la soledad gracias a un encuentro inesperado con Jesús.</p>
@@ -51,7 +51,7 @@
                 <img src="./img/inspiration.jpg" alt="Samaritana illustration">
             </div>
         </section>
-        <section class="grid container reviews"> <!-- Reviews -->
+        <section id="reviews" class="grid container reviews"> <!-- Reviews -->
             <div class="reviews-title">
                 <h2>Reviews</h2>
             </div>
@@ -76,21 +76,21 @@
 
             <!-- <div class="section-img">Imagen</div> -->
         </section>
-        <section class="grid container buy"> <!-- Call to action -->
+        <section id="buy" class="grid container buy"> <!-- Call to action -->
             <div class="section-text-buy">
                 <h2>Compra</h2>
                 <p><i>Samaritana</i> está disponible en formato digital y físico. Si eres de Ecuador y eres amante de los libros en físico, puedes encontrar mi obra en Librerías CLC. <br>Si te encuentras en otro país, te animo a adquirir mi ebook en nuestro espacio de Amazon Kindle. </p>
                 <br>
                 <br>
-                <a href="#" class="buy-btn">Amazon Kindle</a>
-                <a href="#" class="buy-btn">Librería CLC</a>
+                <a href="https://www.amazon.com/gp/product/B0CFCYCJBW/ref=x_gr_bb_kindle?caller=Goodreads&tag=x_gr_bb_kindle-20" class="buy-btn">Amazon Kindle</a>
+                <a href="https://clcecuador.com/product/samaritana-fatima-martinez-9789942447173" class="buy-btn">Librería CLC</a>
             </div>
             <div class="section-img">
                 <!-- <img src="./img/book_mockup_2.png" alt="Samaritana frontpage mockup"> -->
             </div>
         </section>
     </main>
-    <footer class="grid rrss"> <!-- RRSS -->
+    <footer id="rrss" class="grid rrss"> <!-- RRSS -->
         <div class="footer-contacto">
             <h3>¡Conectemos!</h3>
             <br>

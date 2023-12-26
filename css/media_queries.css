@@ -43,6 +43,10 @@
         justify-self: center;
     }
 
+    .sinopsis, .inspiration{
+        height: 60vh !important;
+    }
+
     section .section-text{
         align-self:first baseline;
         text-align: center;
