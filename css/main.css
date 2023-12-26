@@ -178,6 +178,7 @@ section .section-text-buy{
 section .section-img{
     grid-column: span 7;
     overflow: hidden;
+    display: grid;
 }
 /* section .section-img img{
     position: relative;
@@ -185,7 +186,9 @@ section .section-img{
 
 .sinopsis .section-img img{
     width: 50%;
-    top: 3rem;
+    /* top: 3rem; */
+    justify-self: center;
+    align-self: center;
     /* bottom: 15rem; */
 }
 .inspiration .section-img img{
@@ -193,7 +196,9 @@ section .section-img{
     right: 8rem;
     bottom: 15rem; */
     width: 50%;
-    top: 3rem;
+    justify-self: center;
+    align-self: center;
+    /* top: 3rem; */
 }
 
 .buy .section-img {
@@ -222,7 +227,7 @@ section .section-img{
 .reviews .review-card{
     grid-column: span 4;
     /* width: 300px; */
-    height: 70%;
+    height: 60%;
     background-color: #FAFAF0;
     margin: 2rem 0;
     border-radius: 30px;
