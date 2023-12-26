@@ -1,32 +1,4 @@
 @media (max-width: 960px){
-    nav{
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-areas: 
-            "burger . btn";
-        justify-content:center;
-        align-items: start;
-        height: 8vh;
-        margin-top: 0;
-        padding: 0;
-    }
-
-    nav a{
-        display: none;
-    }
-
-    .burger-menu, .nav-btn{
-        display: block;
-    }
-
-    .nav-btn{
-        grid-area: btn;
-    }
-
-    .burger-menu{
-        margin-top: 28px;
-        grid-area: burger;
-    }
 
     .container{
         display: grid;
@@ -66,30 +38,42 @@
     }
 
     .front-page .title h2{
-        width: 70%;
+        /* width: 80%; */
         font-size: 1.5rem;
-        margin-inline: auto;
         line-height: 2.2rem;
         justify-self: center;
     }
 
     section .section-text{
         align-self:first baseline;
-  /*       margin: 0 15%; */
+        text-align: center;
         margin-bottom: 5%;
+        margin-inline: auto;
         grid-area: section-text;
+        position: static;
     }
 
     section .section-text p{
-        width: 100%;
+        width: 75%;
+        margin: 0 auto;
     }
     
     section .section-img{
         overflow: hidden;
         align-self: first baseline;
         position: static;
-        height: 50vh;
+        height: 60vh !important;
     }
+
+    section .section-img img{
+        width: 100% !important;
+        top: 0 !important;
+    }
+
+    /* section .section-img img{
+
+    } */
+
     .reviews{
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -108,10 +92,44 @@
 }
 
 @media (max-width: 768px){
+    header{
+       position: relative;
+       bottom: 20px;
+    }
+
+    nav{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: 
+            "burger . btn";
+        justify-content:center;
+        align-items: start;
+        height: 8vh;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    nav a{
+        display: none;
+    }
+
+    .burger-menu, .nav-btn{
+        display: block;
+    }
+
+    .nav-btn{
+        grid-area: btn;
+    }
+
+    .burger-menu{
+        margin-top: 28px;
+        grid-area: burger;
+    }
+    
     .front-page .heading-btn{
         display: block;
         margin: 0 auto;
-        margin-top: 50%;
+        margin-top: 40%;
         opacity: 65%;
     }
 
@@ -121,14 +139,34 @@
         font-size: 8rem;
     }
 
+    section .section-text h2{
+        font-size: 3rem;
+        margin: 2rem 0;
+    }
+
+    .sinopsis .section-img{
+        /* width: 100%; */
+        grid-column: span 12 !important;
+        height: 50vh;
+    }
+
+    .sinopsis .section-text{
+        height: 50vh;
+    }
+
+    section .section-img img{
+        width: 100% !important;
+    }
+
     .reviews{
-        grid-template-rows: none;
+        grid-template-rows: repeat(4, min-content);
         height: auto !important;
         max-height: none !important;
     }
     .reviews .review-card{
+        grid-template-rows: 1fr 50px 50px auto;
         grid-column: 2 /span 10;
-        height: 55%;
+        /* height: 55%; */
         /* background-color: red; */
     }
     
