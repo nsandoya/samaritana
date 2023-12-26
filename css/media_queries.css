@@ -1,4 +1,33 @@
 @media (max-width: 960px){
+    nav{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: 
+            "burger . btn";
+        justify-content:center;
+        align-items: start;
+        height: 8vh;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    nav a{
+        display: none;
+    }
+
+    .burger-menu, .nav-btn{
+        display: block;
+    }
+
+    .nav-btn{
+        grid-area: btn;
+    }
+
+    .burger-menu{
+        margin-top: 28px;
+        grid-area: burger;
+    }
+
     .container{
         display: grid;
         grid-template-columns: 1fr;
@@ -79,6 +108,13 @@
 }
 
 @media (max-width: 768px){
+    .front-page .heading-btn{
+        display: block;
+        margin: 0 auto;
+        margin-top: 50%;
+        opacity: 65%;
+    }
+
     .front-page .title h1{
         position: relative;
         left: -1.5rem;

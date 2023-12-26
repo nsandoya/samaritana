@@ -37,6 +37,10 @@ header nav{
     /* justify-content: space-evenly; */
 }
 
+.burger-menu{
+    display: none;
+}
+
 a{
     color: grey;
     text-decoration: none;
@@ -76,6 +80,10 @@ main{
     /* background-position-x: 150px; */ 
     /* Jugar con esto en los media queries */
     /* background-position-y: -120px ; */
+}
+
+.front-page .heading-btn{
+    display: none;
 }
     
 .front-page .title{
@@ -119,6 +127,7 @@ section p{
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 20px;
+    max-width: fit-content;
 }
 
 .front-page .title h2{
@@ -313,6 +322,10 @@ footer{
     border: none;
     margin: 20px 0;
     font-size: 1.1rem;
+}
+
+.footer-contacto input[type="submit"]:hover{
+    cursor: pointer;
 }
 
 .footer-contacto input[type="text"]:focus-visible{
