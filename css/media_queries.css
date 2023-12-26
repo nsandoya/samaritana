@@ -1,4 +1,4 @@
-@media (max-width: 960px){
+@media (max-width: 1024px){
 
     .container{
         display: grid;
@@ -24,11 +24,10 @@
     p{
         font-size: 1rem;
     }
-
+    
     .front-page .title{
-        /* margin-left: 10rem; */
-        position: relative;
-        top: 15%;
+        position: static !important;
+        margin: 45% auto !important;
     }
 
     .front-page .title h1{
@@ -65,14 +64,10 @@
         height: 60vh !important;
     }
 
-    section .section-img img{
+    .sinopsis .section-img img, .inspiration .section-img img{
         width: 100% !important;
         top: 0 !important;
     }
-
-    /* section .section-img img{
-
-    } */
 
     .reviews{
         display: grid;
@@ -88,6 +83,10 @@
         grid-column: span 6;
         height: min-content;
         /* background-color: red; */
+    }
+
+    .buy .section-img{
+    background-size: cover;
     }
 }
 
@@ -125,6 +124,14 @@
         margin-top: 28px;
         grid-area: burger;
     }
+
+    .front-page{
+        height: 100vh;
+    }
+
+    .front-page .title{
+        margin: 35% auto;
+    }
     
     .front-page .heading-btn{
         display: block;
@@ -154,7 +161,7 @@
         height: 50vh;
     }
 
-    section .section-img img{
+    .sinopsis .section-img img, .inspiration .section-img img{
         width: 100% !important;
     }
 
@@ -169,5 +176,31 @@
         /* height: 55%; */
         /* background-color: red; */
     }
-    
-}
+
+    .buy{
+        display: grid;
+        grid-template-rows: repeat(2, min-content);
+        grid-template-areas: 
+            "img"
+            "txt";
+        min-height: 100vh !important;
+        height: 100vh;
+    }
+
+    .buy .section-img{
+        background-size: auto;
+        grid-area: img;
+        height: 50vh;
+    }
+
+    .buy .section-text{
+        grid-area: txt;
+        align-self: first baseline;
+    }
+
+    .buy a{
+        display: block;
+        margin-inline: auto; 
+    }
+
+};

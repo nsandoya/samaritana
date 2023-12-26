@@ -179,9 +179,9 @@ section .section-img{
     grid-column: span 7;
     overflow: hidden;
 }
-section .section-img img{
+/* section .section-img img{
     position: relative;
-}
+} */
 
 .sinopsis .section-img img{
     width: 50%;
@@ -196,10 +196,11 @@ section .section-img img{
     top: 3rem;
 }
 
-.buy .section-img img{
-    width: 150%;
-    right: 12rem;
-    bottom: 8rem;
+.buy .section-img {
+    background-image: url(../img/book_mockup_2.png);
+    /* background-size: cover; */
+    background-position: center;
+    background-position-x: center;
 }
 
 .reviews{
