@@ -1,4 +1,4 @@
-@media (max-width: 1024px){
+@media (max-width: 1200px){
 
     .container{
         display: grid;
@@ -84,8 +84,12 @@
 
     .reviews{
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: repeat(4, 3fr);
         grid-template-rows: 150px 1fr 1fr;
+        grid-template-areas:  
+            "title title title title"
+            "card-1 card-1 card-2 card-2"
+            ".      card-3 card-3     .";
         grid-column: span 12;
         padding-inline: 30px;
         padding-bottom: 20px;
@@ -97,19 +101,25 @@
         text-align: center;
         justify-self: center;
         align-self: center;
+        grid-area: title;
+    }
+    .reviews .card-1{
+        grid-area: card-1;
+    }
+    .reviews .card-2{
+        grid-area: card-2;
+    }
+    .reviews .card-3{
+        grid-area: card-3;
     }
 
     .reviews .review-card{
-        grid-column: span 5;
+        /* grid-column: span 6; */
         grid-template-rows: 1fr 50px 50px 1fr;
         width: 70%;
         height: 75%;
         padding: 40px 30px;
-        /* padding-bottom: 50px !important; */
-        margin: 0 2rem;
-        /* align-self: center; */
-        
-        /* background-color: red; */
+        margin: 0 auto;
     }
 
     .buy{
@@ -141,10 +151,10 @@
 }
 
 @media (max-width: 768px){
-    header{
+    /* header{
        position: relative;
        bottom: 20px;
-    }
+    } */
 
     nav{
         display: grid;
@@ -152,10 +162,11 @@
         grid-template-areas: 
             "burger . btn";
         justify-content:center;
-        align-items: start;
-        height: 8vh;
-        margin-top: 0;
-        padding: 0;
+        align-items: center;
+        height: 10vh;
+        margin-top: 0 !important;
+        padding: 0 !important;
+        padding-top: 15px !important;
     }
 
     nav a{
@@ -171,11 +182,13 @@
     }
 
     .burger-menu{
-        margin-top: 28px;
+        margin-top: 25px;
         grid-area: burger;
     }
 
     .front-page{
+        max-width: 100vw;
+        /* width: 100vw; */
         height: 100vh;
     }
 
@@ -193,11 +206,11 @@
     .front-page .title h1{
         position: relative;
         left: -1.5rem;
-        font-size: 8rem;
+        font-size: 6rem;
     }
 
-    section .section-text h2{
-        font-size: 3rem;
+    section /* .section-text */ h2{
+        font-size: 2.5rem;
         margin: 2rem 0;
     }
 
@@ -216,7 +229,13 @@
     }
 
     .reviews{
+        grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(4, min-content);
+        grid-template-areas: 
+            "title"
+            "card-1"
+            "card-2"
+            "card-3";
         height: auto !important;
         max-height: none !important;
         row-gap: 20px;
@@ -262,6 +281,10 @@
     .buy a{
         display: block;
         margin-inline: auto; 
+    }
+
+    footer .footer-contacto h3{
+        font-size: 3.2rem;
     }
 
 };
