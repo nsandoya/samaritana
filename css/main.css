@@ -222,6 +222,7 @@ section .section-img{
     grid-column: span 12;
     justify-self: center;
     align-self: center;
+    margin-top: 2rem;
 }
 
 .reviews .review-card{

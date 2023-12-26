@@ -88,15 +88,22 @@
         grid-template-rows: 150px 1fr 1fr;
         grid-column: span 12;
         padding-inline: 30px;
+        padding-bottom: 20px;
         min-height: 100vh;
         height: auto !important;
+    }
+
+    .reviews .title{
+        text-align: center;
+        justify-self: center;
+        align-self: center;
     }
 
     .reviews .review-card{
         grid-column: span 5;
         grid-template-rows: 1fr 50px 50px 1fr;
         width: 70%;
-        height: 80%;
+        height: 75%;
         padding: 40px 30px;
         /* padding-bottom: 50px !important; */
         margin: 0 2rem;
@@ -117,6 +124,10 @@
 
     .buy .section-text{
         grid-area: txt;
+    }
+
+    .buy .section-text .buy-btn{
+        margin-inline: 0.5rem !important;
     }
 
     .buy .section-img{
@@ -175,8 +186,8 @@
     .front-page .heading-btn{
         display: block;
         margin: 0 auto;
-        margin-top: 40%;
-        opacity: 65%;
+        margin-top: -28%;
+        opacity: 35%;
     }
 
     .front-page .title h1{
@@ -208,10 +219,21 @@
         grid-template-rows: repeat(4, min-content);
         height: auto !important;
         max-height: none !important;
+        row-gap: 20px;
+        padding-bottom: 40px;
     }
+
+    .reviews .title{
+        /* width: 100% !important; */
+        grid-column: span 12;
+        align-self: center !important;
+        margin: 0 auto;
+    }
+
     .reviews .review-card{
         grid-template-rows: 1fr 50px 50px auto;
         grid-column: 2 /span 10;
+        height: 80%;
         /* height: 55%; */
         /* background-color: red; */
     }
