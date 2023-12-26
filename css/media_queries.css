@@ -7,14 +7,16 @@
         grid-template-areas: 
             "section-img"
             "section-text";
-        min-height: none;
+        min-height: 100vh !important;
         height: auto !important;
-        max-height: none;
+        max-height: min-content;
+        /* height: auto !important;
+        max-height: none !important; */
     }
 
     .grid{
         gap: 0;
-        height: auto;
+        /* height: auto; */
     }
 
     section{
@@ -49,10 +51,10 @@
         justify-self: center;
     }
 
-    .sinopsis, .inspiration{
+   /*  .sinopsis, .inspiration{
         height: 60vh !important;
     }
-
+ */
     section .section-text{
         align-self:first baseline;
         text-align: center;
@@ -63,7 +65,8 @@
     }
 
     section .section-text p{
-        width: 75%;
+        width: 65%;
+        font-size: 1.1rem !important;
         margin: 0 auto;
     }
     
@@ -75,14 +78,14 @@
     }
 
     .sinopsis .section-img img, .inspiration .section-img img{
-        width: 100% !important;
+/*         width: 100% !important; */
         top: 0 !important;
     }
 
     .reviews{
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: 100px 80%;
+        grid-template-rows: 150px 1fr 1fr;
         grid-column: span 12;
         padding-inline: 30px;
         min-height: 100vh;
@@ -90,13 +93,35 @@
     }
 
     .reviews .review-card{
-        grid-column: span 6;
-        height: min-content;
+        grid-column: span 5;
+        grid-template-rows: 1fr 50px 50px 1fr;
+        width: 70%;
+        height: 80%;
+        padding: 40px 30px;
+        /* padding-bottom: 50px !important; */
+        margin: 0 2rem;
+        /* align-self: center; */
+        
         /* background-color: red; */
     }
 
+    .buy{
+        display: grid;
+        grid-template-areas: 
+            "img"
+            "txt";
+        grid-template-rows: 1fr 1fr;
+        min-height: 100vh !important;
+        padding-bottom: 8%;
+    }
+
+    .buy .section-text{
+        grid-area: txt;
+    }
+
     .buy .section-img{
-    background-size: cover;
+        background-size: cover;
+        grid-area: img;
     }
 
     footer{
@@ -107,7 +132,7 @@
 @media (max-width: 768px){
     header{
        position: relative;
-       bottom: 10px;
+       bottom: 20px;
     }
 
     nav{
@@ -176,7 +201,7 @@
     }
 
     .sinopsis .section-img img, .inspiration .section-img img{
-        width: 100% !important;
+        width: 83% !important;
     }
 
     .reviews{
