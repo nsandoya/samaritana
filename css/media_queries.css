@@ -3,7 +3,7 @@
     .container{
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        /* grid-template-rows: 1fr 1fr; */
         grid-template-areas: 
             "section-img"
             "section-text";
@@ -32,9 +32,10 @@
     }
     
     .front-page .title{
-        position: relative;
+        position: static;
         top: 0;
         align-self: center;
+        margin: 5.5rem auto !important;
         /* margin: 45% auto !important; */
     }
 
@@ -51,14 +52,16 @@
         justify-self: center;
     }
 
-   /*  .sinopsis, .inspiration{
-        height: 60vh !important;
+    .front-page .title p{
+        font-size: 1.2rem;
+        bottom: 1rem;
     }
- */
+
     section .section-text{
-        align-self:first baseline;
+        align-self:center;
         text-align: center;
-        margin-bottom: 5%;
+        margin-top: 5%;
+        margin-bottom: 10%;
         margin-inline: auto;
         grid-area: section-text;
         position: static;
@@ -127,7 +130,7 @@
         grid-template-areas: 
             "img"
             "txt";
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 45% 1fr;
         min-height: 100vh !important;
         padding-bottom: 8%;
     }
@@ -144,10 +147,10 @@
         background-size: cover;
         grid-area: img;
     }
-
+/* 
     footer{
         height: 40vh !important;
-    }
+    } */
 }
 
 @media (max-width: 768px){
@@ -179,17 +182,24 @@
 
     .nav-btn{
         grid-area: btn;
+        position: relative;
+        bottom: 20px;
     }
 
     .burger-menu{
         margin-top: 25px;
         grid-area: burger;
+        position: relative;
+        bottom: 15px;
     }
 
     .front-page{
         max-width: 100vw;
-        /* width: 100vw; */
         height: 100vh;
+        background: url(../img/book_mockup_1_mobile.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: -180px;
     }
 
     .front-page .title{
@@ -199,14 +209,29 @@
     .front-page .heading-btn{
         display: block;
         margin: 0 auto;
-        margin-top: -28%;
+        /* margin-top: -28%; */
         opacity: 35%;
     }
 
     .front-page .title h1{
         position: relative;
-        left: -1.5rem;
+        left: -0.5rem;
         font-size: 6rem;
+    }
+
+    .front-page .title p{
+        font-size: 1rem;
+        position: relative;
+        bottom: 1rem;
+        padding: 15px;
+        text-shadow: #f0eae0 1px 1px 4px;
+        /* background-color: rgba(240, 234, 224, 0.5);
+        border-radius: 15px; */
+    }
+
+    .front-page svg{
+        position: relative;
+        bottom: 7.5rem;
     }
 
     section /* .section-text */ h2{
@@ -214,18 +239,27 @@
         margin: 2rem 0;
     }
 
-    .sinopsis .section-img{
+    /* .sinopsis{
+        min-height: 150vh;
+    } */
+
+    .sinopsis .section-img, .inspiration .section-img{
         /* width: 100%; */
         grid-column: span 12 !important;
-        height: 50vh;
+        height: 100% !important;
+        /* height: 50vh; */
     }
 
     .sinopsis .section-text{
-        height: 50vh;
+        align-self: center;
     }
 
     .sinopsis .section-img img, .inspiration .section-img img{
         width: 83% !important;
+    }
+
+    .inspiration .author-copy{
+        margin-inline: auto;
     }
 
     .reviews{
@@ -252,9 +286,14 @@
     .reviews .review-card{
         grid-template-rows: 1fr 50px 50px auto;
         grid-column: 2 /span 10;
+        width: 85%;
         height: 80%;
         /* height: 55%; */
         /* background-color: red; */
+    }
+
+    .reviews .review-card p{
+        width: 100%;
     }
 
     .buy{
@@ -278,13 +317,29 @@
         align-self: first baseline;
     }
 
+    .buy .section-text-buy .buy-copy{
+        margin-top: 3rem;
+    }
+
     .buy a{
         display: block;
         margin-inline: auto; 
     }
 
+    footer{
+        min-height: 35vh;
+    }
+
+    footer .footer-contacto{
+        align-self: center !important;
+    }
+
     footer .footer-contacto h3{
-        font-size: 3.2rem;
+        font-size: 3rem;
+    }
+
+    footer .footer-contacto p{
+        width: 80%;
     }
 
 };

@@ -20,8 +20,6 @@ html, body{
 header{
     padding: 20px 40px;
     align-items: center;
-    /* position: fixed; */
-    /* justify-self: center; */
 }
 
 header nav{
@@ -103,6 +101,11 @@ main{
 
 .front-page .title p{
     line-height: 0.1rem;
+    position: relative;
+    bottom: 3.5rem;
+    font-size: 1.5rem;
+    /* padding: 15px;
+    border-top: #9b7947 solid 1px; */
 }
 
 section h2{
@@ -180,9 +183,6 @@ section .section-img{
     overflow: hidden;
     display: grid;
 }
-/* section .section-img img{
-    position: relative;
-} */
 
 .sinopsis .section-img img{
     width: 50%;
@@ -201,12 +201,38 @@ section .section-img{
     /* top: 3rem; */
 }
 
+.inspiration .author-copy{
+    font-size: 1.5rem !important;
+    position: relative;
+    top: 1rem;
+    color: #d4a763;
+}
+
+.inspiration h2{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.buy{
+    min-height: 120vh;
+}
+
 .buy .section-img {
     background-image: url(../img/book_mockup_2.png);
     /* background-size: cover; */
     background-position: center;
     background-position-x: center;
 }
+
+.buy .section-text-buy .buy-copy{
+    color: #d4a763;
+    font-size: 1.5rem;
+}
+
+.buy .section-text-buy h2{
+    margin: 1.5rem auto;
+}
+
 
 .reviews{
     display: grid;
@@ -215,7 +241,9 @@ section .section-img{
     grid-column: span 12;
     padding-inline: 100px;
     padding-bottom: 30px;
-    height: 100vh;
+    min-height: 130vh !important;
+    height: 130vh !important;
+
     /* justify-content: space-between !important; */
 }
 
@@ -229,8 +257,9 @@ section .section-img{
 .reviews .review-card{
     grid-column: span 4;
     /* width: 300px; */
-    height: 75%;
-    background-color: #FAFAF0;
+    height: 70%;
+    background: linear-gradient(#fffdfa, #f7f1e8);
+    /* background-color: #FAFAF0; */
     margin: 2rem 0;
     border-radius: 30px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
@@ -275,20 +304,22 @@ section .section-img{
 }
 
 .reviews .review-card p{
-    width: 70%;
+    width: 80%;
+    align-self: first baseline;
     line-height: 1.3rem;
 }
 
 footer{
     grid-column: span 12;
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
     grid-template-areas: 
         "contacto"
         "rrss";
-    height: 40vh;
+    /* height: 35vh; */
     background-color: #eeeade;
     justify-items: center;
     align-items: center;
+    padding: 3rem 0;
 }
 
 .footer-contacto{
@@ -298,7 +329,7 @@ footer{
     color: #9b7947;
     font-size: 1.5rem;
     text-align: center;
-    margin-top: 30px;
+/*     margin-top: 30px; */
 }
 
 .footer-contacto h3{
@@ -314,13 +345,19 @@ footer{
     text-align: center;
 }
 
-.footer-contacto input{
+/* .footer-contacto input{
     font-family: 'Gabarito', sans-serif;
     border-radius: 20px;
     padding: 10px 20px;
     border: none;
     margin: 20px 0;
     font-size: 1.1rem;
+} */
+
+.footer-contacto p{
+    color: #6d7177;
+    margin: 2rem auto;
+    width: 70%;
 }
 
 .footer-contacto input[type="submit"]:hover{
@@ -348,4 +385,18 @@ footer svg{
 
 footer span{
     align-self:baseline;
+}
+
+.offcanvas-item{
+    list-style: none;
+    text-decoration: none;
+    margin: 15px 0 !important;
+
+    font-size: 1.6rem;
+    color: #eeeade !important;
+}
+#\#buy > a{
+    color: #eeeade !important;
+    font-size: 1.4rem;
+    /* padding: 10px 15px !important; */
 }
