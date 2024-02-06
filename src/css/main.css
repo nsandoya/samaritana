@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cormorant+Garamond:wght@500;700&family=Gabarito:wght@400;600&family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cormorant+Garamond:wght@500;700&display=swap');
+@font-face{
+    font-family: 'MrsSaintDelafield-Regular';
+    src: url(../fonts/MrsSaintDelafield-Regular.ttf);
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gabarito', sans-serif;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+}
+
+header{
+    padding: 20px 40px;
+    align-items: center;
+}
+
+header nav{
+    grid-column: span 12;
+    width: 100%;
+    justify-self: center;
+    position: fixed;
+    z-index: 1;
+    background-color: #FAFAF0;
+    margin-top: 18px;
+    padding: 20px 0;
+    text-align: center;
+    /* justify-content: space-evenly; */
+}
+
+.burger-menu{
+    display: none;
+}
+
+a{
+    color: grey;
+    text-decoration: none;
+    margin: 1.5rem;
+}
+
+p{
+    line-height: 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 100;
+    opacity: 80%;
+}
+
+body{
+    background-color: #FAFAF0; 
+}
+
+main{
+    /* max-width: 1200px; */
+/*     margin: 0px auto; */
+    margin: 0;
+/*     padding: 20px; */
+}
+
+.front-page{
+    /* background-image: url(../img/book_mockup_front_page.jpg); */
+    /* background-image: url(../img/book_mockup_1.jpg); */
+    background: linear-gradient(to bottom, transparent, #f0eae0), url(../img/book_mockup_1.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    grid-column: 2/span 10;
+    /* grid-column: span 12; */
+    /* position: relative;
+    right: 6rem; */
+    height: 95vh;
+    /* background-position-x: 100px; */
+    /* background-position-x: 150px; */ 
+    /* Jugar con esto en los media queries */
+    /* background-position-y: -120px ; */
+}
+
+.front-page .heading-btn{
+    display: none;
+}
+    
+.front-page .title{
+    /* margin-left: 10rem; */
+    position: relative;
+    top: 15%;
+}
+
+.front-page .title h1{
+    font-family: 'MrsSaintDelafield-Regular';
+    font-size: 14rem;
+    line-height: 0.1rem;
+    color: #70552c;
+    text-shadow: 2px 5px 15px rgba(255,255,255,0.2);
+    font-weight: 100;
+}
+
+.front-page .title p{
+    line-height: 0.1rem;
+    position: relative;
+    bottom: 3.5rem;
+    font-size: 1.5rem;
+    /* padding: 15px;
+    border-top: #9b7947 solid 1px; */
+}
+
+section h2{
+    font-family: 'Garamond', serif;
+    font-weight: 100;
+    font-size: 4rem;
+    text-transform: uppercase;
+    align-self: center;
+    letter-spacing: 0.5rem;
+    /* margin-top: 5rem; */
+    color: #6d7177;
+    /* color: #5a73a1; */
+}
+
+section p{
+    color: #6d7177;
+}
+
+.buy-btn{
+    background-color: #d4a763;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+    max-width: fit-content;
+}
+
+.front-page .title h2{
+    font-size: 2rem;
+    line-height: 0.2rem;
+}
+
+.front-page h1{
+    font-size: 3rem;
+}
+
+.container{
+    grid-column: span 12;
+    height: 100vh !important;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.sinopsis, .reviews{
+    background-color: #eeeade;
+    /* background-color: #d3def3; */
+
+}
+
+section{
+    text-align: center;
+}
+
+section .section-text{
+    width: 100%;
+    grid-column: 2/span 4 ;
+    align-self: center;
+    margin-inline: 10%;
+    position: relative;
+    left: 50px;
+    text-align: left;
+}
+
+section .section-text-buy{
+    width: 80%;
+    grid-column: span 5 ;
+    align-self: center;
+    margin-inline: 10%;
+    text-align: center;
+}
+
+section .section-img{
+    grid-column: span 7;
+    overflow: hidden;
+    display: grid;
+}
+
+.sinopsis .section-img img{
+    width: 50%;
+    /* top: 3rem; */
+    justify-self: center;
+    align-self: center;
+    /* bottom: 15rem; */
+}
+.inspiration .section-img img{
+    /* width: 150%;
+    right: 8rem;
+    bottom: 15rem; */
+    width: 50%;
+    justify-self: center;
+    align-self: center;
+    /* top: 3rem; */
+}
+
+.inspiration .author-copy{
+    font-size: 1.5rem !important;
+    position: relative;
+    top: 1rem;
+    color: #d4a763;
+}
+
+.inspiration h2{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.buy{
+    min-height: 120vh;
+}
+
+.buy .section-img {
+    background-image: url(../img/book_mockup_2.png);
+    /* background-size: cover; */
+    background-position: center;
+    background-position-x: center;
+}
+
+.buy .section-text-buy .buy-copy{
+    color: #d4a763;
+    font-size: 1.5rem;
+}
+
+.buy .section-text-buy h2{
+    margin: 1.5rem auto;
+}
+
+
+.reviews{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100px 80%;
+    grid-column: span 12;
+    padding-inline: 100px;
+    padding-bottom: 30px;
+    min-height: 130vh !important;
+    height: 130vh !important;
+
+    /* justify-content: space-between !important; */
+}
+
+.reviews-title{
+    grid-column: span 12;
+    justify-self: center;
+    align-self: center;
+    margin-top: 2rem;
+}
+
+.reviews .review-card{
+    grid-column: span 4;
+    /* width: 300px; */
+    height: 70%;
+    background: linear-gradient(#fffdfa, #f7f1e8);
+    /* background-color: #FAFAF0; */
+    margin: 2rem 0;
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 50px 1fr;
+    justify-items: center;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.reviews .review-card .rc-photo{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.reviews .review-card .ph_1{
+    background-image: url(../img/lector_1.jpg);
+    background-size: cover;
+}
+.reviews .review-card .ph_2{
+    background-image: url(../img/lector_2.jpg);
+    background-size: cover;
+}
+.reviews .review-card .ph_3{
+    background-image: url(../img/lector_3.jpg);
+    background-size: cover;
+}
+
+.reviews .review-card h3{
+    /* text-transform: uppercase; */
+    color: #9b7947;
+    font-size: 1.5rem;
+}
+
+.reviews .review-card span{
+    margin-top: 5%;
+    opacity: 80%;
+}
+
+.reviews .review-card p{
+    width: 80%;
+    align-self: first baseline;
+    line-height: 1.5rem;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+footer{
+    grid-column: span 12;
+    /* grid-template-rows: 1fr 1fr; */
+    grid-template-areas: 
+        "contacto"
+        "rrss";
+    /* height: 35vh; */
+    background-color: #eeeade;
+    justify-items: center;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+.footer-contacto{
+    grid-area: contacto;
+    grid-column: span 12;
+    align-self: center;
+    color: #9b7947;
+    font-size: 1.5rem;
+    text-align: center;
+/*     margin-top: 30px; */
+}
+
+.footer-contacto h3{
+    font-family: 'Garamond', serif;
+    font-weight: 100;
+    font-size: 4rem;
+    padding: 10px;
+    justify-self: center;
+/*     margin: 0 auto; */
+    margin: 0;
+    margin-top: 30px;
+    line-height: 0.2rem;
+    text-align: center;
+}
+
+.footer-contacto p{
+    color: #6d7177;
+    margin: 2rem auto;
+    width: 70%;
+}
+
+.footer-contacto input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+.footer-contacto input[type="text"]:focus-visible{
+    outline: transparent;
+    box-shadow: 0px -1px 8px 0px rgba(235, 197, 149, 0.5);
+}
+
+.footer-rrss{
+    grid-area: rrss;
+    grid-column: span 12;
+    align-self: center;
+/*     margin-bottom: 30px; */
+}
+
+footer svg{
+    opacity: 80%;
+    margin-inline: 5px;
+    align-self: center;
+
+}
+
+footer span{
+    align-self:baseline;
+}
+
+.offcanvas-item{
+    list-style: none;
+    text-decoration: none;
+    margin: 15px 0 !important;
+
+    font-size: 1.6rem;
+    color: #eeeade !important;
+}
+#\#buy > a{
+    color: #eeeade !important;
+    font-size: 1.4rem;
+    padding-top: 4px !important;
+    padding-bottom: 10px !important;
+    /* padding: 10px 15px !important; */
+    svg{
+        position: relative;
+        top: 3px;
+        margin-right: 7px;
+    }
+}
+
+.offcanvas-menu{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #eeeade;
+
+    transform: translateX(-100%);
+    transition: all .4s ease;
+    
+    /* .offcanvas-header{
+        height: 20%;
+    } */
+    button{
+        background: none;
+        border: none;
+    }
+    .offcanvas-header{
+        display: grid;
+        grid-template-columns: 11fr 1fr;
+        justify-items: end;
+        align-items: end;
+
+        position: relative;
+        top: 2rem;
+
+        /* display: flex;
+        flex-direction: row;
+        justify-content: space-between; */
+    }
+    .offcanvas-body{
+        position: relative;
+        bottom: 4.2rem;
+    }
+}
+
+.offcanvas-menu.active{
+    transform: translateX(0);
+}
