@@ -202,8 +202,8 @@
         background: url(../img/book_mockup_1_mobile.jpg) !important;
         background-size: cover !important;
         background-repeat: no-repeat;
-        background-position-x: -520px !important;
-        background-position-y: -35px !important;
+        background-position-x: -500px !important;
+        /* background-position-y: -35px !important; */
 
         grid-column: 2/span 10;
     }
