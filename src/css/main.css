@@ -415,8 +415,8 @@ footer span{
 .offcanvas-menu{
     display: grid;
     grid-template-columns: 1fr;
-    /* grid-template-rows: 1fr 4fr;
-    justify-items: center;
+    grid-template-rows: 1fr 4fr;
+    /*justify-items: center;
     align-items: center;*/
     text-align: center; 
     
@@ -451,10 +451,10 @@ footer span{
         justify-content: space-between; */
     }
     .offcanvas-body{
-        align-self: center;
+        align-self: start;
         justify-self: center;
         position: relative;
-        bottom: 5.2rem;
+        top: 1.5rem;
         
         ul{
             padding: 0 !important;
