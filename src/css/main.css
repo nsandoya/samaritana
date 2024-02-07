@@ -17,13 +17,13 @@ html, body{
     column-gap: 30px;
 }
 
-header{
+/* header{
     position: fixed;
     z-index: 1;
     width: 100vw;
     height: 6vh;
     background: #FAFAF0;
-}
+} */
 
 header nav{
     grid-column: span 12;
@@ -366,6 +366,7 @@ a.buy-btn:nth-child(3){
     color: #6d7177;
     margin: 2rem auto;
     width: 70%;
+    font-size: 1.1rem;
 }
 
 .footer-contacto input[type="submit"]:hover{

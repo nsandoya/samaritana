@@ -154,9 +154,13 @@
 }
 
 @media (max-width: 768px){
-    header{
-        height: 10vh;
-    }
+    /* header{
+        position: fixed;
+        z-index: 1;
+        width: 100vw;
+        height: 6vh;
+        background: #FAFAF0;
+    } */
 
     nav{
         display: grid;
@@ -195,10 +199,10 @@
     .front-page{
         max-width: 100vw;
         height: 100vh;
-        background: url(../img/book_mockup_1_mobile.jpg);
-        background-size: cover;
+        background: url(../img/book_mockup_1_mobile.jpg) !important;
+        background-size: cover !important;
         background-repeat: no-repeat;
-        background-position-x: -180px;
+        background-position-x: -180px !important;
     }
 
     .front-page .title{
