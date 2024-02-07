@@ -154,10 +154,9 @@
 }
 
 @media (max-width: 768px){
-    /* header{
-       position: relative;
-       bottom: 20px;
-    } */
+    header{
+        height: 10vh;
+    }
 
     nav{
         display: grid;
