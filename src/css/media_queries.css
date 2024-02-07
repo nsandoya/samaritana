@@ -183,7 +183,7 @@
     .nav-btn{
         grid-area: btn;
         position: relative;
-        bottom: 12px;
+        bottom: 10px;
     }
 
     .burger-menu{

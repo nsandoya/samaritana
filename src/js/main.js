@@ -5,7 +5,12 @@ const offcanvasItem = document.querySelector("ul");
 const offcanvasMenu = document.querySelector(".offcanvas-menu");
 
 offcanvasOpenBtn.addEventListener('click', (event)=>{
-    offcanvasMenu.classList.add('active')
+    
+    if(offcanvasMenu.classList.contains('active')){
+        offcanvasMenu.classList.remove('active')
+    }else{
+        offcanvasMenu.classList.add('active')
+    }
 })
 
 offcanvasCloseBtn.addEventListener('click', (event)=>{

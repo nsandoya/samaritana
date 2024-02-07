@@ -17,9 +17,24 @@ html, body{
     column-gap: 30px;
 }
 
-header{
+/* header{
     padding: 20px 40px;
     align-items: center;
+    
+} */
+/* 
+header.grid{
+    height: 12vh !important;
+    padding: 20px 40px;
+
+} */
+
+header{
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 10vh;
+    background: #FAFAF0;
 }
 
 header nav{
@@ -32,6 +47,8 @@ header nav{
     margin-top: 18px;
     padding: 20px 0;
     text-align: center;
+
+    top: -1.5rem;
     /* justify-content: space-evenly; */
 }
 
@@ -380,20 +397,13 @@ footer span{
     align-self:baseline;
 }
 
-.offcanvas-item{
-    list-style: none;
-    text-decoration: none;
-    margin: 15px 0 !important;
 
-    font-size: 1.6rem;
-    color: #eeeade !important;
-}
 #\#buy > a{
-    color: #eeeade !important;
-    font-size: 1.4rem;
+    color: #fff !important;
+/*     font-size: 1.4rem; */
     padding-top: 4px !important;
     padding-bottom: 10px !important;
-    /* padding: 10px 15px !important; */
+    margin-bottom: 10px;
     svg{
         position: relative;
         top: 3px;
@@ -404,11 +414,11 @@ footer span{
 .offcanvas-menu{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 4fr;
+    /* grid-template-rows: 1fr 4fr;
     justify-items: center;
-    align-items: center;
-    text-align: center;
-
+    align-items: center;*/
+    text-align: center; 
+    
     position: fixed;
     bottom: 0;
     left: 0;
@@ -420,29 +430,43 @@ footer span{
     transform: translateX(-100%);
     transition: all .4s ease;
     
-    /* .offcanvas-header{
-        height: 20%;
-    } */
     button{
         background: none;
         border: none;
+        margin-right: 2rem;
+        margin-top: 2rem;
     }
     .offcanvas-header{
         display: grid;
         grid-template-columns: 11fr 1fr;
-        justify-items: end;
-        align-items: end;
+        /* justify-items: end;
+        align-items: end; */
 
-        position: relative;
-        top: 2rem;
+        /* position: relative;
+        top: 2rem; */
 
         /* display: flex;
         flex-direction: row;
         justify-content: space-between; */
     }
     .offcanvas-body{
+        align-self: center;
+        justify-self: center;
         position: relative;
         bottom: 4.2rem;
+        
+        ul{
+            padding: 0 !important;
+        }
+    }
+
+    .offcanvas-item{
+        list-style: none;
+        text-decoration: none;
+        margin: 15px 0 !important;
+    
+        font-size: 1.6rem;
+        color: #eeeade !important;
     }
 }
 
