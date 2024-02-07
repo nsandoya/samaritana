@@ -202,7 +202,9 @@
         background: url(../img/book_mockup_1_mobile.jpg) !important;
         background-size: cover !important;
         background-repeat: no-repeat;
-        background-position-x: -180px !important;
+        background-position-x: -280px !important;
+
+        grid-column: 2/span 10;
     }
 
     .front-page .title{
@@ -225,7 +227,7 @@
     .front-page .title p{
         font-size: 1rem;
         position: relative;
-        bottom: 1rem;
+        bottom: 1.5rem;
         padding: 15px;
         text-shadow: #f0eae0 1px 1px 4px;
         /* background-color: rgba(240, 234, 224, 0.5);
@@ -284,6 +286,10 @@
         grid-column: span 12;
         align-self: center !important;
         margin: 0 auto;
+    }
+
+    #reviews > div.reviews-title{
+        margin-left: 1.3rem;
     }
 
     .reviews .review-card{
