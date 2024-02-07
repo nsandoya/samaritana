@@ -435,7 +435,7 @@ footer span{
         background: none;
         border: none;
         margin-right: 2rem;
-        /* margin-top: 2rem; */
+        margin-top: 2.5rem;
     }
     .offcanvas-header{
         display: grid;
@@ -454,7 +454,7 @@ footer span{
         align-self: start;
         justify-self: center;
         position: relative;
-        top: 1.5rem;
+        top: 2.2rem;
         
         ul{
             padding: 0 !important;

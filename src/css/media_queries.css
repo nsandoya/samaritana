@@ -202,7 +202,8 @@
         background: url(../img/book_mockup_1_mobile.jpg) !important;
         background-size: cover !important;
         background-repeat: no-repeat;
-        background-position-x: -280px !important;
+        background-position-x: -520px !important;
+        background-position-y: -35px !important;
 
         grid-column: 2/span 10;
     }
@@ -227,7 +228,7 @@
     .front-page .title p{
         font-size: 1rem;
         position: relative;
-        bottom: 1.5rem;
+        bottom: 2rem;
         padding: 15px;
         text-shadow: #f0eae0 1px 1px 4px;
         /* background-color: rgba(240, 234, 224, 0.5);
