@@ -8,12 +8,12 @@
     src: url('../assets/fonts/Gabarito.ttf') format('truetype');
 };
 @font-face{
-    font-family: 'mrssaintdelafield';
+    font-family: 'MrsSaintDelafield';
     src: url('../assets/fonts/MrsSaintDelafield.ttf') format('truetype');
 }
 @font-face{
     font-family: 'playfairdisplay';
-    src: url('../assets/fonts/PlayFairDisplay.ttf') format('truetype');
+    src: url('../assets/fonts/PlayfairDisplay.ttf') format('truetype');
 }
 
 @layer base {
@@ -26,12 +26,16 @@
   }
 
   /* Text global styles */
-  h1{
-    @apply text-ocre-140 font-mrssaintdelafield
+  .h1-hero{
+    @apply text-ocre-140 text-xl text-[100px] /* text-[240px] */ font-MrsSaintDelafield
   }
 
   h2{
     @apply text-ocre-130 font-playfairdisplay uppercase
+  }
+
+  .h3-hero{
+    @apply text-ocreNeutral-120  font-playfairdisplay uppercase tracking-[6.4px] text-[28px]
   }
 
   .h3-normal{
@@ -67,5 +71,13 @@
     font-semibold text-sm
     hover:cursor-pointer
     hover:bg-ocre-100
+  }
+
+  .hero{
+    background: url("../src/assets/book_mockup.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
   }
 }

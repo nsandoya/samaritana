@@ -13,20 +13,10 @@ import SimpleNavbar from '@/components/SimpleNavbar.astro'
 
 // Global styles sheet
 import '../styles/globals.css'
+import HeroSection from '@/components/HeroSection.astro';
+import HomeLayout from '@/layouts/HomeLayout.astro';
 
 ---
 
-<MainLayout>
-    <SimpleNavbar/>
-    <!-- <Menubar>
-        <MenubarMenu>
-          <MenubarTrigger>Menu</MenubarTrigger>
-          <MenubarContent>
-            <MenubarItem>Item 1</MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
-      </Menubar> -->
-      
-      
-    <slot></slot>
-</MainLayout>
+<HomeLayout></HomeLayout>
+
