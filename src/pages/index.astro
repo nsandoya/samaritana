@@ -1,10 +1,32 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import SimpleNavbar from '@/components/SimpleNavbar.astro'
+/* import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar" */
+
 // Global styles sheet
-import '@/styles/globals.css'
+import '../styles/global.css'
 
 ---
 
 <MainLayout>
-
+    <SimpleNavbar/>
+    <!-- <Menubar>
+        <MenubarMenu>
+          <MenubarTrigger>Menu</MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>Item 1</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar> -->
+      
+      
+    <slot></slot>
 </MainLayout>

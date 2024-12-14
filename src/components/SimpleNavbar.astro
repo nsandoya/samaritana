@@ -1,0 +1,66 @@
+---
+const links = [
+  //{ text: 'Inicio', href: '/' },
+  { text: 'Sobre mi', href: '/' },
+  { text: 'Libros', href: '/' },
+  { text: 'Voluntariado', href: '/' },
+  { text: 'Blog', href: '/blog' },
+];
+---
+
+<nav class="bg-orange-100">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <a href="/" class="text-slate-600 font-bold">Ecuador In Tech</a>
+
+        <!-- Botón del menú móvil -->
+        <button id="mobile-menu-button" class="block sm:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Menú Desktop -->
+        <div class="hidden sm:flex sm:items-center lg:space-x-8">
+            {links.map(link => (
+                <a href={link.href} class="text-white hover:text-gray-300 px-3 py-2 rounded-md">
+                  {link.text}
+                </a>
+            ))}
+        </div>   
+    </div>
+
+    <!-- Menú Mobile -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-orange-100 transform -translate-x-full transition-transform duration-300 sm:hidden">
+        <!-- Botón de cerrar -->
+        <div class="flex justify-end p-4">
+            <button id="close-menu-button" class="text-slate-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-col items-center justify-center h-full space-y-2 p-4">
+            {links.map(link => (
+                <a href={link.href} class="text-slate-600 py-2 px-4">
+                  {link.text}
+                </a>
+            ))}
+        </ul>
+    </div>
+</nav>
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Mostrar el menú móvil
+    mobileMenuButton?.addEventListener('click', () => {
+        mobileMenu?.classList.remove('-translate-x-full');
+    });
+
+    // Ocultar el menú móvil
+    closeMenuButton?.addEventListener('click', () => {
+        mobileMenu?.classList.add('-translate-x-full');
+    });
+</script>
