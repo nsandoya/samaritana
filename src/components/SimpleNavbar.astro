@@ -1,4 +1,10 @@
 ---
+import PrimaryButton from './shared/PrimaryButton.astro';
+import CloseButton from './shared/CloseButton.astro';
+import BurgerMenuButton from './shared/BurgerMenuButton.astro';
+import Link from './shared/Link.astro';
+
+
 const links = [
   //{ text: 'Inicio', href: '/' },
   { text: 'Sobre mi', href: '/' },
@@ -6,63 +12,45 @@ const links = [
   { text: 'Voluntariado', href: '/' },
   { text: 'Blog', href: '/blog' },
 ];
+
 ---
 
 <nav class="bg-orange-50">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <!-- Icono provisional -->
         <a href="/" class="hidden sm:flex a-link ">
             <div class="flex rounded-full bg-ocre-110 justify-center px-3 py-1"><span class="text-ocre-30 font-bold">S</span></div>
         </a>
 
         <!-- Botón del menú móvil -->
-        <button id="mobile-menu-button" class="block sm:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 a-link" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
-
-        <div class="block sm:hidden">
-            <a class="btn">
-                Conectemos
-            </a>
-        </div>
+        <BurgerMenuButton />
+       
 
         <!-- Menú Desktop -->
         <div class="hidden sm:flex sm:items-center lg:space-x-8">
             {links.map(link => (
-                <a href={link.href} class="a-link px-3 py-2 rounded-md">
-                  {link.text}
-                </a>
+                <Link {...link} class:list={"px-3 py-2"}/>
             ))}
         </div>   
-        <div class="hidden sm:flex sm:items-center lg:space-x-8">
-            <a class="btn">
-                Conectemos
-            </a>
-        </div>   
+
+        <PrimaryButton title='Conectemos' class:list={"hidden sm:flex sm:items-center lg:space-x-8"}/>
     </div>
 
     <!-- Menú Mobile -->
     <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-orange-100 transform -translate-x-full transition-transform duration-300 sm:hidden">
         <!-- Botón de cerrar -->
-        <div class="flex justify-end p-4">
-            <button id="close-menu-button" class="a-link">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
+        <CloseButton />
         <!-- Links -->
         <ul class="flex flex-col items-center justify-center h-full p-4">
             {links.map(link => (
-                <a href={link.href} class="a-link py-2 px-4 space-y-2 ">
-                  {link.text}
-                </a>
+                <div class="py-2 px-4 space-y-2">
+                    <Link {...link}/>
+                </div>
             ))}
+   
         <div class="mt-10">
-            <a class="btn text-base sm:text-sm">
-                Conectemos
-            </a>
+            <PrimaryButton title='Conectemos' class:list={"text-base sm:text-sm"}/> 
+            
         </div>
         </ul>
     </div>
