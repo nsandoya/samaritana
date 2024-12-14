@@ -9,7 +9,27 @@ export default {
     			md: 'calc(var(--radius) - 2px)',
     			sm: 'calc(var(--radius) - 4px)'
     		},
-    		colors: {}
+			fontFamily: {
+				gabarito: ['Gabarito', 'sans-serif'], 
+				mrssaintdelafield: ['MrsSaintDelafield', 'serif'], 
+				playfairdisplay: ['PlayFairDisplay', 'serif'], 
+			  },
+    		colors: {
+				ocre: {
+					30: '#FDF2DE',
+					100: '#E4A444',
+					110: '#CA933F',
+					120: '#B48641',
+					130: '#A37D43',
+					140: '#846639',
+				  },
+				ocreNeutral:{
+					110: '#8A8377',
+					120: '#736B5D',
+					130: '#504634',
+					150: '#393225',
+				}
+			}
     	}
     },
 	plugins: [require("tailwindcss-animate")],

@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face{
+    font-family: 'gabarito';
+    src: url('../assets/fonts/Gabarito.ttf') format('truetype');
+};
+@font-face{
+    font-family: 'mrssaintdelafield';
+    src: url('../assets/fonts/MrsSaintDelafield.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'playfairdisplay';
+    src: url('../assets/fonts/PlayFairDisplay.ttf') format('truetype');
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem
+  }
+
+  body{
+    @apply font-gabarito
+  }
+
+  /* Text global styles */
+  h1{
+    @apply text-ocre-140 font-mrssaintdelafield
+  }
+
+  h2{
+    @apply text-ocre-130 font-playfairdisplay uppercase
+  }
+
+  .h3-normal{
+     @apply text-ocre-120 font-bold
+  }
+
+  .h3-connect{
+    @apply text-ocreNeutral-150 font-bold
+  }
+
+  h4, h5{
+    @apply text-ocreNeutral-130 font-bold
+  }
+
+  p{
+    @apply text-ocreNeutral-120
+  }
+
+  span{
+    @apply text-ocreNeutral-110
+  }
+
+  .a-link{
+    @apply text-ocreNeutral-120 font-semibold
+  }
+
+  /* Component styles */
+  .btn{
+    @apply flex items-center w-fit h-[44px] p-[16px] mt-[20px] rounded-[1.2rem] 
+    bg-ocre-110 text-ocre-30 
+    font-semibold
+    hover:cursor-pointer
+    hover:bg-ocre-100
+  }
+}
