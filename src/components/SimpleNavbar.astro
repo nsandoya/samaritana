@@ -8,9 +8,11 @@ const links = [
 ];
 ---
 
-<nav class="bg-orange-100">
+<nav class="bg-orange-50">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-        <a href="/" class="a-link">Samaritana</a>
+        <a href="/" class="hidden sm:flex a-link ">
+            <div class="flex rounded-full bg-ocre-110 justify-center px-3 py-1"><span class="text-ocre-30 font-bold">S</span></div>
+        </a>
 
         <!-- Botón del menú móvil -->
         <button id="mobile-menu-button" class="block sm:hidden">
@@ -19,13 +21,24 @@ const links = [
             </svg>
         </button>
 
+        <div class="block sm:hidden">
+            <a class="btn">
+                Conectemos
+            </a>
+        </div>
+
         <!-- Menú Desktop -->
         <div class="hidden sm:flex sm:items-center lg:space-x-8">
             {links.map(link => (
-                <a href={link.href} class="text-white hover:text-gray-300 px-3 py-2 rounded-md">
+                <a href={link.href} class="a-link px-3 py-2 rounded-md">
                   {link.text}
                 </a>
             ))}
+        </div>   
+        <div class="hidden sm:flex sm:items-center lg:space-x-8">
+            <a class="btn">
+                Conectemos
+            </a>
         </div>   
     </div>
 
@@ -39,15 +52,18 @@ const links = [
                 </svg>
             </button>
         </div>
-        <ul class="flex flex-col items-center justify-center h-full space-y-2 p-4">
+        <!-- Links -->
+        <ul class="flex flex-col items-center justify-center h-full p-4">
             {links.map(link => (
-                <a href={link.href} class="a-link py-2 px-4">
+                <a href={link.href} class="a-link py-2 px-4 space-y-2 ">
                   {link.text}
                 </a>
             ))}
-            <a class="btn">
+        <div class="mt-10">
+            <a class="btn text-base sm:text-sm">
                 Conectemos
             </a>
+        </div>
         </ul>
     </div>
 </nav>
