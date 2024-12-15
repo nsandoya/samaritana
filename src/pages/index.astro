@@ -1,11 +1,11 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import SimpleNavbar from '@/components/SimpleNavbar.astro'
-import HomeLayout from '@/layouts/HomeLayout.astro';
+import SimpleNavbar from '@/components/ui/SimpleNavbar.astro'
 import AboutSection from '@/components/AboutSection.astro';
 
 import '../styles/globals.css';
 import type { About } from '@/interfaces/AboutSection';
+import HeroSection from '@/components/HeroSection.astro';
 
 // Tendré que pasar toda esta info a un JSON
 const aboutMe: About = {
@@ -28,12 +28,13 @@ const redemptionJourney: About = {
 
 ---
 <MainLayout>
+  <!-- Navbar -->
   <SimpleNavbar/>
-  
-  <HomeLayout></HomeLayout>
-  
+  <!-- Hero section -->
+  <HeroSection></HeroSection>
+  <!-- About me -->
   <AboutSection {...aboutMe}></AboutSection>
-
+  <!-- Redemption journey (Let's see her books) -->
   <AboutSection {...redemptionJourney}></AboutSection>
 
 </MainLayout>
