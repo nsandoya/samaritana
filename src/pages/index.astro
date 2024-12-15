@@ -6,6 +6,8 @@ import AboutSection from '@/components/AboutSection.astro';
 import '../styles/globals.css';
 import type { About } from '@/interfaces/AboutSection';
 import HeroSection from '@/components/HeroSection.astro';
+import ReviewsMainSection from '@/components/ReviewsMainSection.astro';
+import type { ReviewCard } from '@/interfaces/ReviewCard';
 
 // Tendré que pasar toda esta info a un JSON
 const aboutMe: About = {
@@ -25,6 +27,26 @@ const redemptionJourney: About = {
   direction: "flex-row-reverse"
 }
 
+const reviews:ReviewCard[] = [
+  { 
+    name: "Lila Suárez",
+    country: "Ecuador",
+    review: "Leí esta historia con mucho interés (confieso que no pude evitar llorar un poco). La recomiendo a todos los que buscan una lectura inspiradora y conmovedora",
+    image: "lila-suarez.jpg"
+  },
+  { 
+    name: "Ariel Cortéz",
+    country: "Ecuador",
+    review: "Samaritana es una historia muy emotiva y conmovedora: te lleva a reflexionar sobre tu propia vida. ¡Sus ilustraciones son hermosas! Te transportan a otro mundo",
+    image: "ariel-cortez.png"
+  },
+  { 
+    name: "Paula García",
+    country: "Ecuador",
+    review: "Me gustó mucho seguir el viaje de la protagonista hacia el nuevo comienzo que ella creía imposible. Este libro es también una maravilla para los amantes del arte gráfico",
+    image: "paula-garcia.jpg"
+  },
+]
 
 ---
 <MainLayout>
@@ -36,6 +58,7 @@ const redemptionJourney: About = {
   <AboutSection {...aboutMe}></AboutSection>
   <!-- Redemption journey (Let's see her books) -->
   <AboutSection {...redemptionJourney}></AboutSection>
-
+  <!-- Reviews main section -->
+  <ReviewsMainSection reviews={reviews}/>
 </MainLayout>
 

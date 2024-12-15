@@ -1,0 +1,16 @@
+---
+import type { ReviewCard } from "@/interfaces/ReviewCard"
+
+const {name, country, review, image} = Astro.props as ReviewCard
+---
+<div class="reviewCard">
+    <div class="card-img">
+        <img class="rounded-full" src=`../../src/assets/${image}`/>
+        
+    </div>
+    <div class="my-2">
+        <h3 class="h3-connect text-xl">{name}</h3>
+        <span>{country}</span>
+    </div>
+    <p class="text-[0.85rem] w-[80%]">{review}</p>
+</div>

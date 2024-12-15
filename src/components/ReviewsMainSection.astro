@@ -1,15 +1,18 @@
 ---
 import type {ReviewCard} from '@/interfaces/ReviewCard';
+import ReviewMainCard from './ui/ReviewMainCard.astro';
 
 //const {name, country, review, image=""} = Astro.props as ReviewCard 
-const reviews = Astro.props
+const {reviews} = Astro.props ;
+
 ---
-<section class="bg-ocre-30 flex flex-col w-full h-[100vh]">
-    <!-- Cards -->
-     <div class="grid grid-cols-3 grid-rows-1">
-        <!-- Render de cards -->
-         {reviews.map((review:ReviewCard) => (
-            "algo"
-         ))}
-     </div>
+<section class="bg-ocre-30 flex flex-col w-full h-[100vh] items-center justify-center">
+   <h2 class="mb-10">Reviews</h2> 
+   <!-- Cards -->
+   <div class="grid grid-cols-3 grid-rows-1 gap-10">
+      <!-- Render de cards -->
+      {reviews.map((review:ReviewCard) => (
+         <ReviewMainCard {...review} />
+      ))}
+   </div>
 </section>
