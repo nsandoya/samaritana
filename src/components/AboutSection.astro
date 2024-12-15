@@ -2,11 +2,11 @@
 import type { About } from "@/interfaces/AboutSection";
 import PrimaryButton from "./shared/PrimaryButton.astro";
 
-const {title, subtitle, paragraph, button, image, direction="flex-row"} = Astro.props as About
+const {title, subtitle, paragraph, button, image, color=false, direction="flex-row"} = Astro.props as About
 ---
 <section class:list={[
         `flex ${direction} w-fit mx-auto h-[100vh] justify-center items-center px-[4.5rem]`,
-        {"bg-ocre-30": direction === "flex-row"}
+        {"bg-ocre-30": color}
     ]} >
     <div class:list={[
         "grid grid-cols-1 gap-6 w-[40%]",

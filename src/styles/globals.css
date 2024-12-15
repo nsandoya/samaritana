@@ -95,6 +95,13 @@
     background-position: center;
   }
 
+  .volunteering-img{
+    background: url("../src/assets/volunteering.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   .reviewCard{
     @apply flex flex-col w-[280px] h-fit items-center text-center rounded-[20px];
     padding: 20px 22px;
