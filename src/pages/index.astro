@@ -1,22 +1,40 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import SimpleNavbar from '@/components/SimpleNavbar.astro'
-/* import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
-} from "@/components/ui/menubar" */
-
-// Global styles sheet
-import '../styles/globals.css'
-import HeroSection from '@/components/HeroSection.astro';
 import HomeLayout from '@/layouts/HomeLayout.astro';
+import AboutSection from '@/components/AboutSection.astro';
+
+import '../styles/globals.css';
+import type { About } from '@/interfaces/AboutSection';
+
+// Tendré que pasar toda esta info a un JSON
+const aboutMe: About = {
+  subtitle: "Sobre mi",
+  title: "Fátima Martínez",
+  paragraph: "Tras un largo viaje de relaciones fallidas, pérdidas y desarraigo, tuve  un encuentro cara a cara con Jesús: <br> Recibí el perdón que necesitaba, una  familia, ¡y una nueva vida! Desde entonces, escribo sobre mi fe y mis experiencias para personas que, como yo, anhelan encontrar  esperanza, sanidad y propósito para sus vidas",
+  button: "Conectemos",
+  image: "about-img"
+}
+
+const redemptionJourney: About = {
+  subtitle: "Empieza ahora tu",
+  title: "Viaje de Redención",
+  paragraph: "Te invito a conocer mi historia, ¡tengo mucho que compartir contigo! Si estás en Ecuador y eres amante de los libros, puedes encontrar mi  obra en Librerías CLC. Si te encuentras en otro país, te animo a  adquirir mi ebook en nuestro espacio de Amazon Kindle",
+  button: "Conoce mi obra",
+  image: "redemption-img",
+  direction: "flex-row-reverse"
+}
+
 
 ---
+<MainLayout>
+  <SimpleNavbar/>
+  
+  <HomeLayout></HomeLayout>
+  
+  <AboutSection {...aboutMe}></AboutSection>
 
-<HomeLayout></HomeLayout>
+  <AboutSection {...redemptionJourney}></AboutSection>
+
+</MainLayout>
 

@@ -31,7 +31,7 @@
   }
 
   h2{
-    @apply text-ocre-130 font-playfairdisplay uppercase
+    @apply text-ocre-130 font-playfairdisplay text-[56px] uppercase tracking-[2.8px] leading-snug
   }
 
   .h3-hero{
@@ -47,7 +47,7 @@
   }
 
   h4, h5{
-    @apply text-ocreNeutral-130 font-bold
+    @apply text-ocreNeutral-120 font-bold text-xl
   }
 
   p{
@@ -79,5 +79,19 @@
     background-repeat: no-repeat;
     background-position: center;
 
+  }
+
+  .about-img{
+    background: url("../src/assets/about_me.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .redemption-img{
+    background: url("../src/assets/redemption_journey.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
