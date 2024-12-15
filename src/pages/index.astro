@@ -8,6 +8,7 @@ import type { About } from '@/interfaces/AboutSection';
 import HeroSection from '@/components/HeroSection.astro';
 import ReviewsMainSection from '@/components/ReviewsMainSection.astro';
 import type { ReviewCard } from '@/interfaces/ReviewCard';
+import ContactSection from '@/components/ContactSection.astro';
 
 // Tendré que pasar toda esta info a un JSON
 const aboutMe: About = {
@@ -69,6 +70,8 @@ const volunteering: About = {
   <!-- Reviews main section -->
   <ReviewsMainSection reviews={reviews}/>
   <!-- Samaritana and Volunteering organizations -->
-   <AboutSection {...volunteering}></AboutSection>
+  <AboutSection {...volunteering}></AboutSection>
+  <!-- Let's get in touch -->
+  <ContactSection></ContactSection>
 </MainLayout>
 

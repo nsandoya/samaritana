@@ -33,6 +33,9 @@
   h2{
     @apply text-ocre-130 font-playfairdisplay text-[56px] uppercase tracking-[2.8px] leading-snug
   }
+  .h2-connect{
+    @apply text-ocreNeutral-150 font-gabarito font-bold text-[56px] tracking-[2.8px] leading-snug capitalize
+  }
 
   .h3-hero{
     @apply text-ocreNeutral-120  font-playfairdisplay uppercase tracking-[6.4px] text-[28px]
@@ -54,13 +57,19 @@
     @apply text-ocreNeutral-120
   }
 
-  span{
+  span, label{
     @apply text-ocreNeutral-110
   }
 
   .a-link{
     @apply text-ocreNeutral-120 
     font-semibold text-lg sm:text-base
+    hover:text-ocre-110
+  }
+
+  .text-link{
+    @apply text-ocre-120 
+    font-semibold 
     hover:text-ocre-110
   }
 
