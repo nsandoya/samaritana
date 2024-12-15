@@ -3,13 +3,15 @@ import InputField from "./shared/InputField.astro";
 import PrimaryButton from "./shared/PrimaryButton.astro";
 import TermsAndCoCheckbox from './shared/TermsAndCoCheckbox.astro'
 
+import type {ButtonData} from '@/interfaces/ButtonData';
 
+const btnData:ButtonData = {title: "Suscribirme", link: "/"}
 ---
 
-<section class="bg-ocre-30 flex flex-col w-full h-[100vh] items-center justify-center text-center">
+<section id="connect" class="bg-ocre-30 flex flex-col w-full h-[100vh] items-center justify-center text-center">
     <div class="flex flex-col w-[60%] mx-auto mb-2">
         <h2 class="h2-connect">¡Conectemos!</h2>
-        <p class="my-4">Tenemos una historia en común. Una comunidad creada especialmente para ti te espera :)</p>
+        <p class="my-4">Tenemos una historia en común. Una comunidad creada especialmente para ti te espera</p>
     </div>
     <div class="flex flex-col w-[60%] mx-auto">
         <InputField fieldName="Nombre:"/>
@@ -17,6 +19,6 @@ import TermsAndCoCheckbox from './shared/TermsAndCoCheckbox.astro'
     </div>
     <TermsAndCoCheckbox />
     <div class="flex flex-col w-[60%] items-center mx-auto">
-        <PrimaryButton title="Suscribirme"/>
+        <PrimaryButton {...btnData}/>
     </div>
 </section>

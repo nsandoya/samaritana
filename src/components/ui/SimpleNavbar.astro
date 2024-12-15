@@ -3,6 +3,7 @@ import PrimaryButton from '../shared/PrimaryButton.astro';
 import CloseButton from '../shared/CloseButton.astro';
 import BurgerMenuButton from '../shared/BurgerMenuButton.astro';
 import Link from '../shared/Link.astro';
+import type { ButtonData } from '@/interfaces/ButtonData';
 
 
 const links = [
@@ -12,6 +13,8 @@ const links = [
   { text: 'Voluntariado', href: '/' },
   { text: 'Blog', href: '/blog' },
 ];
+
+const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
 
 ---
 
@@ -33,7 +36,7 @@ const links = [
             ))}
         </div>   
 
-        <PrimaryButton title='Conectemos' class:list={"hidden sm:flex sm:items-center lg:space-x-8"}/>
+        <PrimaryButton {...ctaBtnData} class:list={"hidden sm:flex sm:items-center lg:space-x-8"}/>
     </div>
 
     <!-- Menú Mobile -->
@@ -49,7 +52,7 @@ const links = [
             ))}
    
         <div class="mt-10">
-            <PrimaryButton title='Conectemos' class:list={"text-base sm:text-sm"}/> 
+            <PrimaryButton {...ctaBtnData} title='Conectemos' class:list={"text-base sm:text-sm"}/> 
             
         </div>
         </ul>

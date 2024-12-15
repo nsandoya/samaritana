@@ -15,7 +15,7 @@ const aboutMe: About = {
   subtitle: "Sobre mi",
   title: "Fátima Martínez",
   paragraph: "Tras un largo viaje de relaciones fallidas, pérdidas y desarraigo, tuve  un encuentro cara a cara con Jesús: <br> Recibí el perdón que necesitaba, una  familia, ¡y una nueva vida! Desde entonces, escribo sobre mi fe y mis experiencias para personas que, como yo, anhelan encontrar  esperanza, sanidad y propósito para sus vidas",
-  button: "Conectemos",
+  button: {title: "Conectemos", link: "/#connect"},
   image: "about-img",
   color: true
 }
@@ -24,9 +24,16 @@ const redemptionJourney: About = {
   subtitle: "Empieza ahora tu",
   title: "Viaje de Redención",
   paragraph: "Te invito a conocer mi historia, ¡tengo mucho que compartir contigo! Si estás en Ecuador y eres amante de los libros, puedes encontrar mi  obra en Librerías CLC. Si te encuentras en otro país, te animo a  adquirir mi ebook en nuestro espacio de Amazon Kindle",
-  button: "Conoce mi obra",
+  button: {title: "Conoce mi obra", link: "/libros/samaritana"},
   image: "redemption-img",
   direction: "flex-row-reverse"
+}
+
+const volunteering: About = {
+  title: "Labor Voluntaria",
+  paragraph: "Hace unos años conocí a un maravilloso grupo de personas dedicadas a contribuir al bienestar de otros. Ellos me tendieron la mano en uno de mis momentos más difíciles, y hoy busco activamente nuevas formas de servir y ayudar a la comunidad en agradecimiento. Junto a Lluvia de Gracia y Sordos y Mudos, nos esforzamos día a día para hacer de este mundo un lugar mejor",
+  image: "volunteering-img",
+  button: {title: "Conoce más", link: "/voluntariado/lluvia-de-gracia"},
 }
 
 const reviews:ReviewCard[] = [
@@ -49,13 +56,6 @@ const reviews:ReviewCard[] = [
     image: "paula-garcia.jpg"
   },
 ]
-
-const volunteering: About = {
-  title: "Labor Voluntaria",
-  paragraph: "Hace unos años conocí a un maravilloso grupo de personas dedicadas a contribuir al bienestar de otros. Ellos me tendieron la mano en uno de mis momentos más difíciles, y hoy busco activamente nuevas formas de servir y ayudar a la comunidad en agradecimiento. Junto a Lluvia de Gracia y Sordos y Mudos, nos esforzamos día a día para hacer de este mundo un lugar mejor",
-  image: "volunteering-img",
-  button: "Conoce más",
-}
 
 ---
 <MainLayout>

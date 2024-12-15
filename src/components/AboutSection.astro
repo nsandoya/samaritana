@@ -2,6 +2,8 @@
 import type { About } from "@/interfaces/AboutSection";
 import PrimaryButton from "./shared/PrimaryButton.astro";
 
+import type {ButtonData} from '@/interfaces/ButtonData';
+
 const {title, subtitle, paragraph, button, image, color=false, direction="flex-row"} = Astro.props as About
 ---
 <section class:list={[
@@ -18,7 +20,7 @@ const {title, subtitle, paragraph, button, image, color=false, direction="flex-r
             <h2>{title}</h2>
         </div>
         <p class="w-[85%] mb-4">{paragraph}</p>
-        <PrimaryButton title={button} />
+        <PrimaryButton {...button} />
     </div>
     <div class=`${image} h-[85vh] w-[40%]`></div>
 
