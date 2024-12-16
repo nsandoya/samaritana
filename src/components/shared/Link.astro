@@ -1,13 +1,16 @@
 ---
 interface Props {
     text: string, 
-    href: string
+    href: string,
+    size?: string
 }
 
-const {text, href} = Astro.props
+const {text, href, size} = Astro.props
 ---
 <div>
-    <a href={href} class="a-link px-3">
+    <a href={href} class:list={[
+        `a-link px-3 ${size}`
+    ]}>
         {text}
     </a>
 </div>
