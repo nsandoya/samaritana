@@ -31,7 +31,7 @@
   }
 
   h2{
-    @apply text-ocre-130 font-playfairdisplay text-[56px] uppercase tracking-[2.8px] leading-snug
+    @apply text-ocre-130 font-playfairdisplay text-[50px] uppercase tracking-[2.8px] leading-snug
   }
   .h2-connect{
     @apply text-ocreNeutral-150 font-gabarito font-bold text-[56px] tracking-[2.8px] leading-snug capitalize
