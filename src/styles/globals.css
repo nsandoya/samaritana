@@ -94,21 +94,24 @@
     background: url("../src/assets/about_me.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position-x: center;
+    background-position-y: start;
   }
 
   .redemption-img{
     background: url("../src/assets/redemption_journey.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position-x: center;
+    background-position-y: start;
   }
 
   .volunteering-img{
     background: url("../src/assets/volunteering.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position-x: center;
+    background-position-y: start;
   }
 
   .reviewCard{
