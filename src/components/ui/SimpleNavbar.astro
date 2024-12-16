@@ -21,8 +21,8 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
 <nav class="bg-orange-50 w-full fixed z-10">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
         <!-- Icono provisional -->
-        <a href="/" class="hidden sm:flex a-link ">
-            <div class="flex rounded-full bg-ocre-110 justify-center px-3 py-1"><span class="text-ocre-30 font-bold">S</span></div>
+        <a href="/" class="flex a-link ">
+            <div class="flex w-[32px] h-[32px] rounded-full bg-ocre-110 justify-center items-center px-3 py-1"><span class="text-ocre-30 font-bold">S</span></div>
         </a>
 
         <!-- Botón del menú móvil -->
@@ -30,17 +30,19 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
        
 
         <!-- Menú Desktop -->
-        <div class="hidden sm:flex sm:items-center lg:space-x-8 text-center">
+        <div class="hidden md:flex md:items-center lg:space-x-8 text-center">
             {links.map(link => (
                 <Link {...link} size='text-lg sm:text-base' class:list={"px-3 py-2"}/>
             ))}
         </div>   
 
-        <PrimaryButton {...ctaBtnData} class:list={"hidden sm:flex sm:items-center lg:space-x-8"}/>
+        <div class:list={"hidden md:flex md:items-center lg:space-x-8"}>
+            <PrimaryButton {...ctaBtnData} />
+        </div>
     </div>
 
     <!-- Menú Mobile -->
-    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-orange-100 transform -translate-x-full transition-transform duration-300 sm:hidden">
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-orange-100 transform -translate-x-full transition-transform duration-300 md:hidden">
         <!-- Botón de cerrar -->
         <CloseButton />
         <!-- Links -->
