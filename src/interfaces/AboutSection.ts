@@ -4,7 +4,7 @@ export interface About {
     title: string,
     subtitle?: string,
     paragraph: string,
-    button: ButtonData,
+    button?: ButtonData,
     image: string,
     direction?: string,
     color?: boolean

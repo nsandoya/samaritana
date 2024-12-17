@@ -50,7 +50,7 @@
   }
 
   .h3-hero{
-    @apply text-ocreNeutral-120  font-playfairdisplay uppercase tracking-[6.4px] text-[28px]
+    @apply text-ocreNeutral-120  font-playfairdisplay uppercase tracking-[6.4px] text-[1.35rem] md:text-[1.75rem]
   }
 
   .h3-normal{

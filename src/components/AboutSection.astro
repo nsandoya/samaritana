@@ -19,8 +19,6 @@ const {title, subtitle, paragraph, button, image, color=false, direction="flex-r
         w-[80%] lg:w-[40%]
         pt-10 lg:pt-0 mx-0`,
         {"lg:ml-[5rem]": direction !== "flex-row"},
-        /* {"lg:ml-[6.5rem]": direction === "flex-row-reverse"},    
-        {"lg:mr-6": direction === "flex-row"}, */
         
     ]}>
         <div class="flex flex-col">
@@ -28,7 +26,9 @@ const {title, subtitle, paragraph, button, image, color=false, direction="flex-r
             <h2>{title}</h2>
         </div>
         <p class="w-full lg:w-[85%] mb-4">{paragraph}</p>
-        <PrimaryButton {...button} />
+        <div class="flex flex-col w-[100%] items-left mx-auto">
+            <slot></slot>
+        </div>
     </div>
     <!-- Image -->
     <div class=`${image} h-[85vh] w-full 
