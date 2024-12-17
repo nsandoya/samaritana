@@ -11,7 +11,7 @@ export default {
     		},
 			fontFamily: {
 				gabarito: ['Gabarito', 'sans-serif'], 
-				MrsSaintDelafield: ['MrsSaintDelafield', 'serif'], 
+				MrsSaintDelafield: ['MrsSaintDelafield', 'cursive'], 
 				playfairdisplay: ['PlayFairDisplay', 'serif'], 
 			  },
     		colors: {

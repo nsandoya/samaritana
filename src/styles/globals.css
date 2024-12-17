@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap'); */
 
 @font-face{
     font-family: 'gabarito';
@@ -16,6 +17,13 @@
     src: url('../assets/fonts/PlayfairDisplay.ttf') format('truetype');
 }
 
+/* .mrs-saint-delafield-regular {
+  font-family: "Mrs Saint Delafield", cursive;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+
 @layer base {
   :root {
     --radius: 0.5rem
@@ -27,7 +35,11 @@
 
   /* Text global styles */
   .h1-hero{
-    @apply text-ocre-140 text-xl text-[100px] /* text-[240px] */ font-MrsSaintDelafield
+    @apply text-ocre-140 mt-[4rem] font-MrsSaintDelafield
+    text-xl text-[8rem] sm:text-[10rem] md:text-xl md:text-[14rem]
+    transition-all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out
   }
 
   h2{
@@ -83,12 +95,12 @@
   }
 
   .hero{
-    background: url("../src/assets/book_mockup.png");
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url("../src/assets/book_mockup.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
   }
+
 
   .about-img{
     background: url("../src/assets/about_me.png");
