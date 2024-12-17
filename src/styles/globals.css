@@ -43,10 +43,10 @@
   }
 
   h2{
-    @apply text-ocre-130 font-playfairdisplay text-[50px] uppercase tracking-[2.8px] leading-snug
+    @apply text-ocre-130 font-playfairdisplay text-[50px] tracking-[2.8px] leading-snug
   }
   .h2-connect{
-    @apply text-ocreNeutral-150 font-gabarito font-bold text-[56px] tracking-[2.8px] leading-snug capitalize
+    @apply text-ocreNeutral-130 font-gabarito font-bold text-[36px] tracking-[0.1rem]
   }
 
   .h3-hero{
@@ -154,5 +154,9 @@
   .card-img{
     @apply w-[120px] h-[120px] mb-2;
     /* background: url("../src/assets/redemption_journey.png"); */
+  }
+
+  .reviewSimpleCard{
+    @apply flex flex-col bg-ocre-30 items-start text-left rounded-xl mx-0 my-4 px-8 py-4
   }
 }

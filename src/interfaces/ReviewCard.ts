@@ -1,6 +1,6 @@
 export interface ReviewCard {
     name: string,
-    country: string,
+    country?: string,
     review: string,
     image?: string
 }

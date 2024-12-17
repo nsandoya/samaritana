@@ -1,0 +1,10 @@
+---
+import type {ReviewCard} from '@/interfaces/ReviewCard';
+
+const {name, review} = Astro.props as ReviewCard
+---
+
+<div class="reviewSimpleCard">
+    <h4>{name}</h4>
+    <p>{review}</p>
+</div>

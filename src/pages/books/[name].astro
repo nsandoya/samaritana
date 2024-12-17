@@ -6,9 +6,13 @@ import type { GetStaticPaths } from "astro";
 import PrimaryButton from "@/components/shared/PrimaryButton.astro";
 
 import books from '@/assets/data/books.json'; 
+import simpleReviews from '@/assets/data/simpleReviews.json'; 
 
 import type { BookData } from '@/interfaces/BookData'
 import type { ButtonData } from "@/interfaces/ButtonData";
+import ReviewSimpleCard from "@/components/ui/ReviewSimpleCard.astro";
+import type { ReviewCard } from "@/interfaces/ReviewCard";
+import InputFieldOutlineStyle from "@/components/shared/InputFieldOutlineStyle.astro";
 
 
 export const getStaticPaths = (() => {
@@ -29,14 +33,10 @@ const {name} = Astro.params;
 const {title, subtitle, paragraph, image, links} = Astro.props;
 const booksData: About = {title, subtitle, paragraph, image}
 
-/* const {title, subtitle, paragraph, image, color, button} = Astro.props as About
-
-const bookPageContent: About = {title, subtitle, paragraph, image, color} */
-
-// Esta página será paramétrica
 ---
 
 <BookPageLayout {name}>   
+    <!-- Book main info -->
     <AboutSection {...booksData} direction="flex-row-reverse">
         <div class="flex flex-row items-center justify-left">
             {links.map((link:any) => (
@@ -47,5 +47,27 @@ const bookPageContent: About = {title, subtitle, paragraph, image, color} */
         </div>
     </AboutSection>
 
-    <!-- Aquí debe incluirse un componente que muestre los comentarios del presente libro -->
+    <!-- Book simple reviews -->
+    <div class="flex flex-col w-[80%] mx-auto ">
+        <h2 class="h2-connect leading-[3rem]">Lo que mis lectores dicen:</h2>
+        <div class="flex-flex-col w-full my-6">
+            {simpleReviews.map((review: ReviewCard) => (
+                <ReviewSimpleCard {...review}/>
+            ))}
+        </div>
+    </div>
+    
+    <!-- Simple review form -->
+    <div class="flex flex-col w-[80%] mx-auto ">
+        <h4>¿Has leído {title}?</h4>
+        <h2 class="h2-connect leading-[3rem]">¡Me encantaría conocer tu opinión!</h2>
+        <div class="flex-flex-col w-full my-6">
+            <div class="grid grid-cols-1 gap-10 md:grid-cols-2 w-full">
+                <InputFieldOutlineStyle fieldName="Nombre"/>
+                <InputFieldOutlineStyle fieldName="Email"/>
+            </div>
+            <InputFieldOutlineStyle fieldName="Review"/>
+        </div>
+    </div>
+    
 </BookPageLayout>
