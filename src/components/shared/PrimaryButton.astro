@@ -2,14 +2,22 @@
 interface Props {
     title: string,
     link: string,
-    size?: string
+    size?: string,
+    style?: string
 }
-const {title, link, size} = Astro.props
+const {title, link, size, style="primary-btn"} = Astro.props;
+
+console.log("Classes", style)
 ---
-<div>
-    <a class:list={[
-        `btn ${size}`
-    ]} href={link}>
-        {title}
-    </a>
-</div>
+{
+    title &&
+    <div>
+        <a class:list={[
+            `btn ${size}`,
+            {"primary-btn": style==="primary-btn"},
+            {"secondary-btn": style==="secondary-btn"}
+        ]} href={link}>
+            {title}
+        </a>
+    </div>
+}

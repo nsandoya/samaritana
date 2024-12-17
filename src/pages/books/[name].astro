@@ -1,0 +1,51 @@
+---
+import BookPageLayout from "@/layouts/BookPageLayout.astro";
+import AboutSection from "@/components/AboutSection.astro";
+import type { About } from "@/interfaces/AboutSection";
+import type { GetStaticPaths } from "astro";
+import PrimaryButton from "@/components/shared/PrimaryButton.astro";
+
+import books from '@/assets/data/books.json'; 
+
+import type { BookData } from '@/interfaces/BookData'
+import type { ButtonData } from "@/interfaces/ButtonData";
+
+
+export const getStaticPaths = (() => {
+    const booksContent =  books.map((book) => {
+        let bookPath = book.title.toLocaleLowerCase().replace(/\s+/g, '-')
+        return {bookPath, ...book}
+    })
+
+    const staticPaths = booksContent.map((book) => (
+        { params: {name: book.bookPath}, props: {...book} }
+    ))
+    //console.log(staticPaths)
+    return staticPaths
+
+}) satisfies GetStaticPaths;
+
+const {name} = Astro.params;
+const {title, subtitle, paragraph, image, links} = Astro.props;
+const booksData: About = {title, subtitle, paragraph, image}
+
+/* const {title, subtitle, paragraph, image, color, button} = Astro.props as About
+
+const bookPageContent: About = {title, subtitle, paragraph, image, color} */
+
+// Esta página será paramétrica
+---
+
+<BookPageLayout {name}>   
+    <AboutSection {...booksData} direction="flex-row-reverse">
+        <div class="flex flex-row items-center justify-left">
+            {links.map((link:any) => (
+                <div class="mr-4">
+                    <PrimaryButton {...link}/>
+                </div>
+            ))}
+        </div>
+    </AboutSection>
+
+    <!-- Aquí debe incluirse un componente que muestre los comentarios del presente libro -->
+</BookPageLayout>

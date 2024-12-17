@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Samaritana",
+        "subtitle": "Un nuevo comienzo",
+        "paragraph": "Tras un largo viaje de relaciones fallidas, pérdidas y desarraigo, tuve  un encuentro cara a cara con Jesús: recibí el perdón que necesitaba, una familia, ¡y una nueva vida! ",
+        "image": "samaritana-book",
+        "links": [
+            {
+                "title":"Amazon Kindle", 
+                "link":"https://www.amazon.com/gp/product/B0CFCYCJBW/ref=x_gr_bb_kindle?caller=Goodreads&tag=x_gr_bb_kindle-20",
+                "style":"primary-btn"
+            },
+            {
+                "title": "Librería CLC", 
+                "link":"https://clcecuador.com/product/samaritana-fatima-martinez-9789942447173",
+                "style":"secondary-btn"
+            }
+        ] 
+    },
+    {
+        "title": "El No de Dios",
+        "subtitle": "Tu elección",
+        "paragraph": "En este libro, reflexiono sobre cómo enfrentar diferentes situaciones de nuestro diario vivir con la mirada en Cristo —aún cuando sea Él quien nos dé una respuesta inesperada e incomprensible. Te lo dice alguien que se siente más bendecida y agradecida por los 'No' del cielo que los 'Si' de la Tierra",
+        "image": "samaritana-book",
+        "links": [{"style":"primary-btn"}, {"style":"secondary-btn"}] 
+    }
+]

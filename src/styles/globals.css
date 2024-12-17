@@ -88,10 +88,17 @@
   /* Component styles */
   .btn{
     @apply flex items-center w-fit px-3 py-2 rounded-[1.2rem] 
-    bg-ocre-110 text-ocre-30 
     font-semibold text-sm
     hover:cursor-pointer
+  }
+
+  .primary-btn{
+    @apply bg-ocre-110 text-ocre-30 
     hover:bg-ocre-100
+  }
+  .secondary-btn{
+    @apply bg-white text-ocre-110 outline outline-ocre-110 outline-1
+    hover:bg-ocre-100 hover:text-ocre-30 hover:outline-none
   }
 
   .hero{
@@ -120,6 +127,14 @@
 
   .volunteering-img{
     background: url("../src/assets/volunteering.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: start;
+  }
+
+  .samaritana-book{
+    background: url("../src/assets/samaritana-book.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
