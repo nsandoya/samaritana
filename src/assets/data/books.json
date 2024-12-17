@@ -4,7 +4,7 @@
         "subtitle": "Un nuevo comienzo",
         "path": "samaritana",
         "paragraph": "Tras un largo viaje de relaciones fallidas, pérdidas y desarraigo, tuve  un encuentro cara a cara con Jesús: recibí el perdón que necesitaba, una familia, ¡y una nueva vida! ",
-        "image": "samaritana-book",
+        "image": "/samaritana/img/samaritana-book.png",
         "links": [
             {
                 "title":"Amazon Kindle", 
@@ -23,7 +23,7 @@
         "subtitle": "Tu elección",
         "path": "el-no-de-dios",
         "paragraph": "En este libro, reflexiono sobre cómo enfrentar diferentes situaciones de nuestro diario vivir con la mirada en Cristo —aún cuando sea Él quien nos dé una respuesta inesperada e incomprensible. Te lo dice alguien que se siente más bendecida y agradecida por los 'No' del cielo que los 'Si' de la Tierra",
-        "image": "samaritana-book",
+        "image": "/samaritana/img/samaritana-book.png",
         "links": [{"style":"primary-btn"}, {"style":"secondary-btn"}] 
     }
 ]

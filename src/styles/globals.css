@@ -102,7 +102,7 @@
   }
 
   .hero{
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url("../src/assets/book_mockup.png");
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url("/samaritana/img/book_mockup.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -110,7 +110,7 @@
 
 
   .about-img{
-    background: url("../src/assets/about_me.png");
+    /* background: url("/samaritana/img/about_me.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -118,7 +118,7 @@
   }
 
   .redemption-img{
-    background: url("../src/assets/redemption_journey.png");
+    /* background: url("/samaritana/img/redemption_journey.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -126,7 +126,7 @@
   }
 
   .volunteering-img{
-    background: url("../src/assets/volunteering.png");
+    /* background: url("/samaritana/img/volunteering.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -134,7 +134,7 @@
   }
 
   .samaritana-book{
-    background: url("../src/assets/samaritana-book.png");
+    /* background: url("/samaritana/img/samaritana-book.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;

@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nsandoya.github.io/samaritana',
+  site: 'https://nsandoya.github.io/',
   base: '/samaritana/', 
   integrations: [
     tailwind({
