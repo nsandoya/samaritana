@@ -1,0 +1,20 @@
+[
+    { 
+        "name": "Lila Suárez",
+        "country": "Ecuador",
+        "review": "Leí esta historia con mucho interés (confieso que no pude evitar llorar un poco). La recomiendo a todos los que buscan una lectura inspiradora y conmovedora",
+        "image": "lila-suarez.jpg"
+    },
+    { 
+        "name": "Ariel Cortéz",
+        "country": "Ecuador",
+        "review": "Samaritana es una historia muy emotiva y conmovedora: te lleva a reflexionar sobre tu propia vida. ¡Sus ilustraciones son hermosas! Te transportan a otro mundo",
+        "image": "ariel-cortez.png"
+    },
+    { 
+        "name": "Paula García",
+        "country": "Ecuador",
+        "review": "Me gustó mucho seguir el viaje de la protagonista hacia el nuevo comienzo que ella creía imposible. Este libro es también una maravilla para los amantes del arte gráfico",
+        "image": "paula-garcia.jpg"
+    }
+]

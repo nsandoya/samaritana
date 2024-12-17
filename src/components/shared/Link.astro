@@ -9,7 +9,7 @@ const {text, href, size} = Astro.props
 ---
 <div>
     <a href={href} class:list={[
-        `a-link px-3 ${size}`
+        `a-link px-3 ${size} transition-all ease-in-out`
     ]}>
         {text}
     </a>
