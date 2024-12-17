@@ -1,9 +1,25 @@
 ---
+import InputFieldOutlineStyle from "@/components/shared/InputFieldOutlineStyle.astro";
 import MainLayout from "./MainLayout.astro";
+import ContactSection from "@/components/ContactSection.astro";
 
-const {name} = Astro.props
+const {title} = Astro.props
+const name = title
 ---
 <MainLayout {name}>
     <slot></slot>
+    <!-- Simple review form -->
+    <div class="flex flex-col w-[80%] mx-auto my-10">
+        <h4>¿Has leído {title}?</h4>
+        <h2 class="h2-connect leading-[3rem]">¡Me encantaría conocer tu opinión!</h2>
+        <div class="flex-flex-col w-full my-6">
+            <div class="grid grid-cols-1 gap-10 md:grid-cols-2 w-full">
+                <InputFieldOutlineStyle fieldName="Nombre"/>
+                <InputFieldOutlineStyle fieldName="Email"/>
+            </div>
+            <InputFieldOutlineStyle fieldName="Review"/>
+        </div>
+    </div>
 
+    <ContactSection></ContactSection>
 </MainLayout>

@@ -43,7 +43,7 @@
   }
 
   h2{
-    @apply text-ocre-130 font-playfairdisplay text-[50px] tracking-[2.8px] leading-snug
+    @apply text-ocre-130 font-playfairdisplay text-[50px] tracking-[2.8px] leading-snug 
   }
   .h2-connect{
     @apply text-ocreNeutral-130 font-gabarito font-bold text-[36px] tracking-[0.1rem]
