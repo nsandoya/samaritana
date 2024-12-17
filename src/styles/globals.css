@@ -159,4 +159,13 @@
   .reviewSimpleCard{
     @apply flex flex-col bg-ocre-30 items-start text-left rounded-xl mx-0 my-4 px-8 py-4
   }
+
+  /* .drop-menu-trigger:hover + .drop-menu {
+    display: block;
+  }
+
+  .drop-menu {
+      display: none;
+  } */
+
 }

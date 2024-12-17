@@ -3,37 +3,65 @@ import PrimaryButton from '../shared/PrimaryButton.astro';
 import CloseButton from '../shared/CloseButton.astro';
 import BurgerMenuButton from '../shared/BurgerMenuButton.astro';
 import Link from '../shared/Link.astro';
+
 import type { ButtonData } from '@/interfaces/ButtonData';
+
+import books from '@/assets/data/books.json'
 
 
 const links = [
   //{ text: 'Inicio', href: '/' },
   { text: 'Sobre mi', href: '/' },
-  { text: 'Libros', href: '/' },
-  { text: 'Voluntariado', href: '/' },
+  { text: 'Libros', href:'/libros/samaritana'},
+  { text: 'Voluntariado', href: '' },
   { text: 'Blog', href: '/blog' },
 ];
 
+
 const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
+
+console.log(links)
 
 ---
 
 <nav class="bg-orange-50 w-full fixed z-10">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-        <!-- Icono provisional -->
+        <!-- Temporary icon -->
         <a href="/" class="flex a-link ">
             <div class="flex w-[32px] h-[32px] rounded-full bg-ocre-110 justify-center items-center px-3 py-1"><span class="text-ocre-30 font-bold">S</span></div>
         </a>
 
-        <!-- Botón del menú móvil -->
+        <!-- Mobile menu trigger -->
         <BurgerMenuButton />
        
 
-        <!-- Menú Desktop -->
+        <!-- Desktop Menu -->
         <div class="hidden md:flex md:items-center lg:space-x-8 text-center ml-[4.2rem] ">
-            {links.map(link => (
-                <Link {...link} size='text-lg sm:text-base' class:list={"px-3 py-2"}/>
-            ))}
+            {links.map((link, index) => (
+                    <div class="py-2 px-4 space-y-2">
+                        {link.text === 'Libros' ? (
+                            <div>
+                                {/* <a class="a-link px-3 text-[1.5rem] transition-all ease-in-out">Libros v</a> */}
+                                <a class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Libros</a>
+                                <ul class="drop-menu mt-2 space-y-1 absolute hidden
+                                    bg-white rounded-xl top-9">
+                                    {books.map((book) => (
+                                        <li class="flex flex-col items-start">
+                                            <a 
+                                                href={`/libros/${book.path}`} 
+                                                class="block text-sm text-ocreNeutral-130 hover:text-ocre-110 px-4 py-2"
+                                            >
+                                                {book.title}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ) : (
+                            <Link {...link} size='text-lg sm:text-base' />
+                        )}
+                    </div>
+                ))}
         </div>   
 
         <div class:list={"hidden md:flex md:items-center lg:space-x-8"}>
@@ -41,22 +69,41 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
         </div>
     </div>
 
-    <!-- Menú Mobile -->
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-orange-100 transform -translate-x-full transition-transform duration-300 md:hidden">
         <!-- Botón de cerrar -->
         <CloseButton />
         <!-- Links -->
         <ul class="flex flex-col items-center justify-center h-full p-4">
-            {links.map(link => (
-                <div class="py-2 px-4 space-y-2">
-                    <Link {...link} size='text-[1.5rem]'/>
+                {links.map((link, index) => (
+                    <div class="py-2 px-4 space-y-2">
+                        {link.text === 'Libros' ? (
+                            <div class="text-center">
+                                {/* <a class="a-link px-3 text-[1.5rem] transition-all ease-in-out">Libros v</a> */}
+                                <a class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Libros</a>
+                                <ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl hidden">
+                                    {books.map((book) => (
+                                        <li>
+                                            <a 
+                                                href={`/libros/${book.path}`} 
+                                                class="block text-lg text-ocreNeutral-120 hover:text-ocre-110 px-4 py-1 "
+                                            >
+                                                {book.title}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ) : (
+                            <Link {...link} size='text-[1.5rem]' />
+                        )}
+                    </div>
+                ))}
+    
+                <div class="mt-[6rem]">
+                    <PrimaryButton {...ctaBtnData} size='text-lg px-4' title='Conectemos' /> 
                 </div>
-            ))}
-   
-        <div class="mt-[6rem]">
-            <PrimaryButton {...ctaBtnData} size='text-lg px-4' title='Conectemos'/> 
-            
-        </div>
+
         </ul>
     </div>
 </nav>
@@ -64,7 +111,20 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
 <script>
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const closeMenuButton = document.getElementById('close-menu-button');
+    const navbar = document.querySelector('nav');
     const mobileMenu = document.getElementById('mobile-menu');
+    /* const dropMenuTrigger = document.getElementsByClassName('drop-menu-trigger');
+    const dropMenu = document.getElementsByClassName('drop-menu'); */
+
+    const dropMenuTriggers = document.querySelectorAll('.drop-menu-trigger');
+    const dropMenus = document.querySelectorAll('.drop-menu');
+
+    dropMenuTriggers.forEach((trigger, index) => {
+        const menu = dropMenus[index];
+        trigger.addEventListener('click', () => {
+            menu.classList.toggle('hidden'); // Alterna la visibilidad del menú
+        });
+    });
 
     // Mostrar el menú móvil
     mobileMenuButton?.addEventListener('click', () => {
@@ -75,4 +135,5 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
     closeMenuButton?.addEventListener('click', () => {
         mobileMenu?.classList.add('-translate-x-full');
     });
+
 </script>
