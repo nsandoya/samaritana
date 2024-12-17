@@ -11,7 +11,7 @@ import books from '@/assets/data/books.json'
 
 const links = [
   //{ text: 'Inicio', href: '/' },
-  { text: 'Sobre mi', href: '/samaritana/#about-me' },
+  { text: 'Sobre mi', href: `${import.meta.env.BASE_URL}#about-me` },
   { text: 'Libros', href:''},
   { text: 'Voluntariado', href: '' },
   { text: 'Blog', href: '' },
@@ -27,7 +27,7 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
 <nav class="bg-orange-50 w-full fixed z-10">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
         <!-- Temporary icon -->
-        <a href="/" class="flex a-link ">
+        <a href=`${import.meta.env.BASE_URL}` class="flex a-link ">
             <div class="flex w-[32px] h-[32px] rounded-full bg-ocre-110 justify-center items-center px-3 py-1"><span class="text-ocre-30 font-bold">S</span></div>
         </a>
 
@@ -47,7 +47,7 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
                                     {books.map((book) => (
                                         <li class="flex flex-col items-start">
                                             <a 
-                                                href={`/libros/${book.path}`} 
+                                                href={`${import.meta.env.BASE_URL}libros/${book.path}`} 
                                                 class="block text-sm text-ocreNeutral-120 hover:text-ocre-110 px-4 py-2"
                                             >
                                                 {book.title}
@@ -83,7 +83,7 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
                                     {books.map((book) => (
                                         <li>
                                             <a 
-                                                href={`/libros/${book.path}`} 
+                                                href={`${import.meta.env.BASE_URL}libros/${book.path}`} 
                                                 class="block text-lg text-ocreNeutral-120 hover:text-ocre-110 px-4 py-1 "
                                             >
                                                 {book.title}
