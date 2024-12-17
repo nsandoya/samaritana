@@ -4,8 +4,8 @@ import PrimaryButton from "./shared/PrimaryButton.astro";
 
 import type {ButtonData} from '@/interfaces/ButtonData';
 
-const {title, subtitle, paragraph, button, image, color=false, direction="flex-row"} = Astro.props as About
-console.log(image)
+const {id, title, subtitle, paragraph, button, image, color=false, direction="flex-row"} = Astro.props as About
+//console.log(image)
 ---
 <section class:list={[
         `flex flex-col-reverse w-full mx-auto justify-center items-center px-0 py-0 pb-10
@@ -13,7 +13,7 @@ console.log(image)
         lg:py-20 lg:px-[4.5rem]`,
         {"bg-ocre-30": color},
         {"lg:flex-row-reverse": direction !== "flex-row"},
-    ]} >
+    ]} id={id}>
     <!-- Text box -->
     <div class:list={[
         `grid grid-cols-1 gap-6 
@@ -33,7 +33,6 @@ console.log(image)
     </div>
     <!-- Image -->
     <div class=` h-[85vh] w-full 
-        lg:w-[40%] bg-cover bg-no-repeat ` style=`background: url(${image}); background-position-x: center;
-    ; background-position-y: start;`></div>
+        lg:w-[40%] bg-cover` style=`background: url(${image}); background-position-x: center; background-position-y: start; background-repeat: no-repeat`></div>
 
 </section>

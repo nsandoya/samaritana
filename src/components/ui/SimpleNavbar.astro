@@ -11,7 +11,7 @@ import books from '@/assets/data/books.json'
 
 const links = [
   //{ text: 'Inicio', href: '/' },
-  { text: 'Sobre mi', href: '/' },
+  { text: 'Sobre mi', href: '/samaritana/#about-me' },
   { text: 'Libros', href:''},
   { text: 'Voluntariado', href: '' },
   { text: 'Blog', href: '' },
@@ -20,7 +20,7 @@ const links = [
 
 const ctaBtnData:ButtonData = {title: "Conectemos", link: "/#connect"}
 
-console.log(links)
+//console.log(links)
 
 ---
 
@@ -38,10 +38,9 @@ console.log(links)
         <!-- Desktop Menu -->
         <div class="hidden md:flex md:items-center lg:space-x-8 text-center ml-[4.2rem] ">
             {links.map((link, index) => (
-                    <div class="py-2 px-4 space-y-2">
+                    <div class="py-2 px-2 space-y-2">
                         {link.text === 'Libros' ? (
                             <div>
-                                {/* <a class="a-link px-3 text-[1.5rem] transition-all ease-in-out">Libros v</a> */}
                                 <a class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Libros</a>
                                 <ul class="drop-menu mt-2 space-y-1 absolute hidden
                                     bg-white rounded-xl top-9">
@@ -79,8 +78,7 @@ console.log(links)
                     <div class="py-2 px-4 space-y-2">
                         {link.text === 'Libros' ? (
                             <div class="text-center">
-                                {/* <a class="a-link px-3 text-[1.5rem] transition-all ease-in-out">Libros v</a> */}
-                                <a class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Libros</a>
+                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Libros</p>
                                 <ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl hidden">
                                     {books.map((book) => (
                                         <li>
@@ -111,18 +109,21 @@ console.log(links)
 <script>
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const closeMenuButton = document.getElementById('close-menu-button');
-    const navbar = document.querySelector('nav');
     const mobileMenu = document.getElementById('mobile-menu');
-    /* const dropMenuTrigger = document.getElementsByClassName('drop-menu-trigger');
-    const dropMenu = document.getElementsByClassName('drop-menu'); */
 
     const dropMenuTriggers = document.querySelectorAll('.drop-menu-trigger');
     const dropMenus = document.querySelectorAll('.drop-menu');
+    const links = document.querySelectorAll('a');
 
     dropMenuTriggers.forEach((trigger, index) => {
         const menu = dropMenus[index];
         trigger.addEventListener('click', () => {
             menu.classList.toggle('hidden'); // Alterna la visibilidad del menú
+        });
+    });
+    links.forEach((a, index) => {
+        a.addEventListener('click', () => {
+            mobileMenu?.classList.add('-translate-x-full'); // Alterna la visibilidad del menú
         });
     });
 
