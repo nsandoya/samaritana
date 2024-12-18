@@ -1,0 +1,37 @@
+---
+import VolunteeringLayout from "@/layouts/VolunteeringLayout.astro";
+import type { About } from "@/interfaces/AboutSection";
+import type { GetStaticPaths } from "astro";
+import PrimaryButton from "@/components/shared/PrimaryButton.astro";
+
+import volunteering from '@/assets/data/volunteering.json'
+
+
+
+
+export const getStaticPaths = (() => {
+    /* const booksContent =  books.map((book) => {
+        let bookPath = book.title.toLocaleLowerCase().replace(/\s+/g, '-')
+        return {bookPath, ...book}
+    }) */
+
+    const staticPaths = volunteering.map((item) => (
+        { params: {name: item.path}, props: {...item} }
+    ))
+    //console.log(staticPaths)
+    return staticPaths
+
+}) satisfies GetStaticPaths;
+
+const {name} = Astro.params;
+const {title, subtitle, paragraph, image, links} = Astro.props;
+const volunteeringData: About = {title, subtitle, paragraph, image}
+
+//console.log(Astro.params)
+---
+
+<VolunteeringLayout {title}>   
+    <!-- Book main info -->
+    
+    
+</VolunteeringLayout>
