@@ -2,9 +2,11 @@
 import InputFieldOutlineStyle from "@/components/shared/InputFieldOutlineStyle.astro";
 import MainLayout from "./MainLayout.astro";
 import ContactSection from "@/components/ContactSection.astro";
+import PrimaryButton from "@/components/shared/PrimaryButton.astro";
 
 const {title} = Astro.props
 const name = title
+const btnData = {title:"Enviar", link:"", size:"text-base x-3"}
 ---
 <MainLayout {name}>
     <slot></slot>
@@ -13,11 +15,14 @@ const name = title
         <h4>¿Has leído {title}?</h4>
         <h2 class="h2-connect leading-[3rem]">¡Me encantaría conocer tu opinión!</h2>
         <div class="flex-flex-col w-full my-6">
-            <div class="grid grid-cols-1 gap-10 md:grid-cols-2 w-full">
+            <div class="grid grid-cols-1 gap-0 md:gap-10 md:grid-cols-2 w-full">
                 <InputFieldOutlineStyle fieldName="Nombre"/>
                 <InputFieldOutlineStyle fieldName="Email"/>
             </div>
             <InputFieldOutlineStyle fieldName="Review"/>
+            <div class="w-fit mx-auto">
+                <PrimaryButton {...btnData}/> 
+            </div>
         </div>
     </div>
 

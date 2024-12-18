@@ -13,7 +13,7 @@ const {title, link, size, style="primary-btn"} = Astro.props;
     title &&
     <div>
         <a class:list={[
-            `btn ${size}`,
+            `btn ${size} `,
             {"primary-btn": style==="primary-btn"},
             {"secondary-btn": style==="secondary-btn"}
         ]} href={link}>
