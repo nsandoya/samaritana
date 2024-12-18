@@ -6,7 +6,8 @@ import Link from '../shared/Link.astro';
 
 import type { ButtonData } from '@/interfaces/ButtonData';
 
-import books from '@/assets/data/books.json'
+import books from '@/assets/data/books.json';
+import volunteering from '@/assets/data/volunteering.json'
 
 
 const links = [
@@ -41,7 +42,7 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
                     <div class="py-2 px-2 space-y-2">
                         {link.text === 'Libros' ? (
                             <div>
-                                <a class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Libros</a>
+                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Libros ▾</p>
                                 <ul class="drop-menu mt-2 space-y-1 absolute hidden
                                     bg-white rounded-xl top-9">
                                     {books.map((book) => (
@@ -57,8 +58,26 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
                                 </ul>
                             </div>
                         ) : (
+                        link.text === 'Voluntariado' ? (
+                            <div>
+                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Voluntariado ▾</p>
+                                <ul class="drop-menu mt-2 space-y-1 absolute hidden
+                                    bg-white rounded-xl top-9">
+                                    {volunteering.map((item) => (
+                                        <li class="flex flex-col items-start">
+                                            <a 
+                                                href={`${import.meta.env.BASE_URL}voluntariado/${item.path}`} 
+                                                class="block text-sm text-ocreNeutral-120 hover:text-ocre-110 px-4 py-2"
+                                            >
+                                                {item.title}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ) : (
                             <Link {...link} size='text-lg sm:text-base' />
-                        )}
+                        ))}
                     </div>
                 ))}
         </div>   
@@ -78,7 +97,7 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
                     <div class="py-2 px-4 space-y-2">
                         {link.text === 'Libros' ? (
                             <div class="text-center">
-                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Libros</p>
+                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Libros ▾</p>
                                 <ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl hidden">
                                     {books.map((book) => (
                                         <li>
@@ -87,6 +106,25 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
                                                 class="block text-lg text-ocreNeutral-120 hover:text-ocre-110 px-4 py-1 "
                                             >
                                                 {book.title}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ) :
+
+                        
+                        link.text === 'Voluntariado' ? (
+                            <div class="text-center">
+                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Voluntariado ▾</p>
+                                <ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl hidden">
+                                    {volunteering.map((item) => (
+                                        <li>
+                                            <a 
+                                                href={`${import.meta.env.BASE_URL}voluntariado/${item.path}`} 
+                                                class="block text-lg text-ocreNeutral-120 hover:text-ocre-110 px-4 py-1 "
+                                            >
+                                                {item.title}
                                             </a>
                                         </li>
                                     ))}
@@ -115,15 +153,25 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
     const dropMenus = document.querySelectorAll('.drop-menu');
     const links = document.querySelectorAll('a');
 
+    
     dropMenuTriggers.forEach((trigger, index) => {
         const menu = dropMenus[index];
         trigger.addEventListener('click', () => {
-            menu.classList.toggle('hidden'); // Alterna la visibilidad del menú
+            // Cerrar todos los menús desplegables excepto el actual
+            dropMenus.forEach((otherMenu, otherIndex) => {
+                if (otherIndex !== index) {
+                    otherMenu.classList.add('hidden');
+                }
+            });
+
+            // Alternar la visibilidad del menú actual
+            menu.classList.toggle('hidden'); 
         });
     });
+    
     links.forEach((a, index) => {
         a.addEventListener('click', () => {
-            mobileMenu?.classList.add('-translate-x-full'); // Alterna la visibilidad del menú
+            mobileMenu?.classList.add('-translate-x-full'); 
         });
     });
 

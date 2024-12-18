@@ -1,18 +1,25 @@
 ---
+import PrimaryButton from "@/components/shared/PrimaryButton.astro";
 import MainLayout from "./MainLayout.astro";
 import ContactSection from "@/components/ContactSection.astro";
 
 const {title} = Astro.props
 const name = title
+
+const btnData = {
+    title: "Donar",
+    link: "",
+    size: "text-[1.2rem] py-3 px-5 rounded-[25px]"
+}
 ---
 <MainLayout {name}>
-    <slot></slot>
-    <!-- Simple review form -->
-    <div class="flex flex-col w-[80%] mx-auto my-10">
-        <h4>¿Has leído {title}?</h4>
-        <h2 class="h2-connect leading-[3rem]">¿Te gustaría apoyar esta causa?</h2>
-        <div class="flex-flex-col w-full my-6">
-            
+    <div class="pt-20">
+        <slot></slot>
+    </div>
+    <div class="flex flex-col w-[80%] mx-auto my-28">
+        <h2 class="h3-hero w-[60%] mx-auto leading-[2.5rem] text-center text-ocreNeutral-130">¿Te gustaría apoyar esta causa?</h2>
+        <div class="flex-flex-col my-6 mx-auto">
+            <PrimaryButton {...btnData}></PrimaryButton>
         </div>
     </div>
 

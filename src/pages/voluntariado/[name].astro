@@ -5,6 +5,7 @@ import type { GetStaticPaths } from "astro";
 import PrimaryButton from "@/components/shared/PrimaryButton.astro";
 
 import volunteering from '@/assets/data/volunteering.json'
+import BlogTextContent from "@/components/ui/BlogTextContent.astro";
 
 
 
@@ -24,14 +25,26 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 
 const {name} = Astro.params;
-const {title, subtitle, paragraph, image, links} = Astro.props;
+const {title, subtitle, slogan, paragraph, image, links} = Astro.props;
 const volunteeringData: About = {title, subtitle, paragraph, image}
 
 //console.log(Astro.params)
 ---
 
 <VolunteeringLayout {title}>   
-    <!-- Book main info -->
     
+    <!-- Book main info -->
+    <BlogTextContent {...volunteeringData}>
+        
+        <!-- Image -->
+        <div class=`h-[55vh] w-full` 
+        style=`background: url(${image}); background-size:cover;
+        background-position-x: center; background-position-y: start; background-repeat: no-repeat`>
+        </div>
+
+        <!-- Slogan -->
+        <h3 class="h3-hero mt-6 text-ocreNeutral-130 font-semibold" style="text-transform: none; letter-spacing: normal;">{slogan}</h3>
+
+    </BlogTextContent>
     
 </VolunteeringLayout>

@@ -1,0 +1,21 @@
+---
+import SectionTitle from "../shared/SectionTitle.astro";
+
+const {direction, title, subtitle, paragraph} = Astro.props;
+const header = {title, subtitle}
+---
+
+<!-- Text box -->
+<div class:list={[
+    `grid grid-cols-1 gap-6 
+    w-[80%] lg:w-[40%]
+    pt-10 lg:pt-0 mx-0`,
+    {"lg:ml-[5rem]": direction !== "flex-row"},
+    
+]}>
+    <SectionTitle {...header}></SectionTitle>
+    <p class="w-full lg:w-[85%] mb-4">{paragraph}</p>
+    <div class="flex flex-col w-[100%] items-left mx-auto">
+        <slot></slot>
+    </div>
+</div>
