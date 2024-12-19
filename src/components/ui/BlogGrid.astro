@@ -1,0 +1,30 @@
+---
+
+import type { BlogPost } from "@/interfaces/BlogPost";
+import BlogGridItem from "./BlogGridItem.astro";
+
+const { posts } = Astro.props;
+
+
+//console.log("Posts in parent component:", posts);
+
+---
+
+
+<div class="grid grid-cols-3 gap-6">
+
+  {
+
+    posts && posts.length > 0 ? (
+
+      posts.map((post: BlogPost, index:string) => <BlogGridItem key={index} post={post} />)
+
+    ) : (
+
+      <p>No posts found</p>
+
+    )
+
+  }
+
+</div>

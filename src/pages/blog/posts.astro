@@ -1,0 +1,70 @@
+---
+
+import qs from "qs";
+
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import BlogGrid from "@/components/ui/BlogGrid.astro";
+
+
+let baseUrl = import.meta.env.STRAPI_URL + "/api/posts";
+
+
+const query = qs.stringify({
+
+  populate: {
+
+    featuredImage: {
+
+      fields: ["name", "width", "height", "url"],
+
+    },
+
+    author: {
+
+      populate: {
+
+        bioImage: {
+
+          fields: ["name", "width", "height", "url"],
+
+        },
+
+      },
+
+    },
+
+    category: {
+
+      populate: true,
+
+    },
+
+  },
+
+}, { encode: false });
+
+
+const url = `${baseUrl}?${query}`;
+
+
+const posts = await fetch(url)
+  .then((response) => response.json())
+  .then((data) => data?.data || [])
+  .catch((error) => {
+    console.error("Error fetching posts:", error);
+    return [];
+  });
+
+//console.log("Posts fetched:", posts);
+
+
+---
+
+
+<MainLayout title="Welcome to Astro.">
+
+  <BlogGrid posts={posts} />
+
+</MainLayout>
