@@ -1,3 +1,4 @@
+import type { ImageData } from "./BlogPost";
 import type { ButtonData } from "./ButtonData";
 
 export interface About {
@@ -6,7 +7,7 @@ export interface About {
     subtitle?: string,
     paragraph: string,
     button?: ButtonData,
-    image: string,
+    image: ImageData,
     direction?: string,
     color?: boolean
 }

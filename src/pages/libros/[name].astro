@@ -14,11 +14,12 @@ import ReviewSimpleCard from "@/components/ui/ReviewSimpleCard.astro";
 import type { ReviewCard } from "@/interfaces/ReviewCard";
 import type { BookData, BookLinks } from "@/interfaces/BookData";
 import type { BookReview } from "@/interfaces/BookReview";
+import { getBooks } from "../api/books";
 
 
 
 export async function getStaticPaths() {
-    const baseUrl = import.meta.env.STRAPI_URL + "/api/books";
+    /* const baseUrl = import.meta.env.STRAPI_URL + "/api/books";
 
     const query = qs.stringify({
     populate: {
@@ -30,16 +31,6 @@ export async function getStaticPaths() {
           fields: ["author", "wrote_at", "content", "visibility"]
         }
       }
-      /* author: {
-        populate: {
-          bioImage: {
-            fields: ["name", "width", "height", "url"],
-          },
-        },
-      },
-      category: {
-        populate: true,
-      }, */
     },
   }, { encode: false });
 
@@ -50,13 +41,17 @@ export async function getStaticPaths() {
     .catch((error) => {
       console.error("Error fetching posts:", error);
       return null;
-    });
+    }); */
 
     //console.log("Books data",data)
 
-    return data.data.map((book:BookData) => ({
-    params: { name: book.slug },
-    props: { book },
+    const {body:books} = await getBooks()
+
+    console.log("Books",books)
+
+    return books.map((book:BookData) => ({
+      params: { name: book.slug },
+      props: { book },
   })) || [];
 
     /* const booksContent =  books.map((book) => {
@@ -75,7 +70,7 @@ export async function getStaticPaths() {
 const {name} = Astro.params;
 const {book} = Astro.props;
 const {title, subtitle, description, image, links, reviews} = book as BookData;
-const booksData: About = {title, subtitle, paragraph:description, image}
+const booksData = {title, subtitle, paragraph:description, image}
 
 console.log(Astro.props)
 ---

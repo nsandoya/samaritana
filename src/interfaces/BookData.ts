@@ -15,3 +15,10 @@ export interface BookLinks {
     link: string,
     style?: string
 }
+
+export interface ImageData{
+    name: string, 
+    width: number, 
+    height: number,
+    url: string
+}
