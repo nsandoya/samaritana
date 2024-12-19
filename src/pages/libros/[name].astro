@@ -13,6 +13,7 @@ import simpleReviews from '@/assets/data/simpleReviews.json';
 import ReviewSimpleCard from "@/components/ui/ReviewSimpleCard.astro";
 import type { ReviewCard } from "@/interfaces/ReviewCard";
 import type { BookData, BookLinks } from "@/interfaces/BookData";
+import type { BookReview } from "@/interfaces/BookReview";
 
 
 
@@ -24,6 +25,11 @@ export async function getStaticPaths() {
       image: {
         fields: ["name", "width", "height", "url"],
       },
+      reviews:{
+        populate: {
+          fields: ["author", "wrote_at", "content", "visibility"]
+        }
+      }
       /* author: {
         populate: {
           bioImage: {
@@ -68,7 +74,7 @@ export async function getStaticPaths() {
 
 const {name} = Astro.params;
 const {book} = Astro.props;
-const {title, subtitle, description, image, links} = book as BookData;
+const {title, subtitle, description, image, links, reviews} = book as BookData;
 const booksData: About = {title, subtitle, paragraph:description, image}
 
 console.log(Astro.props)
@@ -91,7 +97,8 @@ console.log(Astro.props)
         <h4>Lo que mis</h4>
         <h2 class="h2-connect leading-[3rem]">Lectores dicen</h2>
         <div class="flex-flex-col w-full my-6">
-            {simpleReviews.map((review: ReviewCard) => (
+          {console.log("Reviews entrantes",reviews)}
+            {reviews?.map((review: BookReview) => (
                 <ReviewSimpleCard {...review}/>
             ))}
         </div>

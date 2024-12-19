@@ -1,10 +1,11 @@
 ---
+import type { BookReview } from '@/interfaces/BookReview';
 import type {ReviewCard} from '@/interfaces/ReviewCard';
 
-const {name, review} = Astro.props as ReviewCard
+const {author, content} = Astro.props as BookReview
 ---
 
 <div class="reviewSimpleCard">
-    <h4 class="text-ocreNeutral-130">{name}</h4>
-    <p>{review}</p>
+    <h4 class="text-ocreNeutral-130">{author}</h4>
+    <p>{content}</p>
 </div>
