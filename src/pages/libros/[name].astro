@@ -1,4 +1,6 @@
 ---
+import qs from "qs";
+
 import BookPageLayout from "@/layouts/BookPageLayout.astro";
 import AboutSection from "@/components/AboutSection.astro";
 import type { About } from "@/interfaces/AboutSection";
@@ -10,10 +12,48 @@ import simpleReviews from '@/assets/data/simpleReviews.json';
 
 import ReviewSimpleCard from "@/components/ui/ReviewSimpleCard.astro";
 import type { ReviewCard } from "@/interfaces/ReviewCard";
+import type { BookData, BookLinks } from "@/interfaces/BookData";
 
 
-export const getStaticPaths = (() => {
-    const booksContent =  books.map((book) => {
+
+export async function getStaticPaths() {
+    const baseUrl = import.meta.env.STRAPI_URL + "/api/books";
+
+    const query = qs.stringify({
+    populate: {
+      image: {
+        fields: ["name", "width", "height", "url"],
+      },
+      /* author: {
+        populate: {
+          bioImage: {
+            fields: ["name", "width", "height", "url"],
+          },
+        },
+      },
+      category: {
+        populate: true,
+      }, */
+    },
+  }, { encode: false });
+
+  const url = `${baseUrl}?${query}`; //
+  //console.log("To fetch",url)
+  const data = await fetch(url)
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error("Error fetching posts:", error);
+      return null;
+    });
+
+    //console.log("Books data",data)
+
+    return data.data.map((book:BookData) => ({
+    params: { name: book.slug },
+    props: { book },
+  })) || [];
+
+    /* const booksContent =  books.map((book) => {
         let bookPath = book.title.toLocaleLowerCase().replace(/\s+/g, '-')
         return {bookPath, ...book}
     })
@@ -22,22 +62,23 @@ export const getStaticPaths = (() => {
         { params: {name: book.bookPath}, props: {...book} }
     ))
     //console.log(staticPaths)
-    return staticPaths
+    return staticPaths */
 
-}) satisfies GetStaticPaths;
+} //satisfies GetStaticPaths;
 
 const {name} = Astro.params;
-const {title, subtitle, paragraph, image, links} = Astro.props;
-const booksData: About = {title, subtitle, paragraph, image}
+const {book} = Astro.props;
+const {title, subtitle, description, image, links} = book as BookData;
+const booksData: About = {title, subtitle, paragraph:description, image}
 
-//console.log(Astro.params)
+console.log(Astro.props)
 ---
 
 <BookPageLayout {title}>   
     <!-- Book main info -->
     <AboutSection {...booksData} direction="flex-row-reverse">
         <div class="flex flex-row items-center justify-left">
-            {links.map((link:any) => (
+            {links?.map((link:BookLinks) => (
                 <div class="mr-4">
                     <PrimaryButton {...link}/>
                 </div>
