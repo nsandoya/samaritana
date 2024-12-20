@@ -1,5 +1,5 @@
 import type { Volunteering } from '@/interfaces/Volunteering';
-import {fetchData} from './general'
+import {fetchData} from './fetchData'
 
 export async function getVolunteerings() {
     const fields = {

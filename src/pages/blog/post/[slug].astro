@@ -1,60 +1,27 @@
 ---
-import qs from "qs";
+import { getBlogPosts } from "@/pages/api/posts";
 
 import MainLayout from "@/layouts/MainLayout.astro";
 
 import SingleBlogItem from "@/components/ui/SingleBlogItem.astro";
+
 import type { BlogPost } from "@/interfaces/BlogPost";
 
 
 export async function getStaticPaths() {
-
-  const baseUrl = import.meta.env.STRAPI_URL + "/api/posts";
-
-  const query = qs.stringify({
-    populate: {
-      featuredImage: {
-        fields: ["name", "width", "height", "url"],
-      },
-      author: {
-        populate: {
-          bioImage: {
-            fields: ["name", "width", "height", "url"],
-          },
-        },
-      },
-      category: {
-        populate: true,
-      },
-    },
-  }, { encode: false });
-
-  const url = `${baseUrl}?${query}`;
-  //console.log("To fetch",url)
-  const data = await fetch(url)
-    .then((response) => response.json())
-    .catch((error) => {
-      console.error("Error fetching posts:", error);
-      return null;
-    });
-
-
-  return data.data.map((post:BlogPost) => ({
-    params: { slug: post.documentId },
-    props: { post },
-  })) || [];
-
+    // Get blog posts
+    const {body: posts} = await getBlogPosts()
+    // Set paths and props
+    return posts.map((post:BlogPost) => ({
+      params: { slug: post.documentId },
+      props: { post },
+    })) || [];
 }
-
 
 const { post } = Astro.props;
 
-console.log("From [slug].astro",post)
 ---
 
-
 <MainLayout title="Blog">
-
   <SingleBlogItem post={post} />
-
 </MainLayout>

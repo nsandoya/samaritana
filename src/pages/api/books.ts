@@ -1,5 +1,5 @@
 import type { BookData } from '@/interfaces/BookData';
-import {fetchData} from './general'
+import {fetchData} from './fetchData'
 
 export async function getBooks() {
     const fields = {
