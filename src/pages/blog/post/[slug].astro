@@ -6,22 +6,30 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import SingleBlogItem from "@/components/ui/SingleBlogItem.astro";
 
 import type { BlogPost } from "@/interfaces/BlogPost";
+import {initializePostsStore} from '@/pages/api/posts'
+import { blogPostsStore } from "@/store/posts";
 
 
 export async function getStaticPaths() {
-    // Get blog posts
-    const {body: posts} = await getBlogPosts()
-    // Set paths and props
+    // Get posts and save them in store
+    const posts = await initializePostsStore()
+
+    if (!posts || posts.length === 0) {
+      console.error("No se encontraron posts en el store");
+      return [];
+    }
+    // Set props and create dynamic pages from posts
     return posts.map((post:BlogPost) => ({
       params: { slug: post.documentId },
       props: { post },
     })) || [];
+  
 }
 
 const { post } = Astro.props;
 
 ---
 
-<MainLayout title="Blog">
+<MainLayout title={post.title}>
   <SingleBlogItem post={post} />
 </MainLayout>
