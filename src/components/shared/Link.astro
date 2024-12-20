@@ -5,11 +5,16 @@ interface Props {
     size?: string
 }
 
-const {text, href, size} = Astro.props
+const {text, href, size} = Astro.props;
+const currentPath = Astro.url.pathname;
+console.log("Desde link", currentPath)
+
 ---
 <div>
     <a href={href} class:list={[
-        `a-link px-3 ${size} transition-all ease-in-out`
+        `a-link px-3 ${size} transition-all ease-in-out`,
+        {"text-ocre-110": href === currentPath},
+        {"text-ocreNeutral-120": href !== currentPath},
     ]}>
         {text}
     </a>

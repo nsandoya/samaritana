@@ -5,7 +5,7 @@ import PrimaryButton from "./shared/PrimaryButton.astro";
 import type {ButtonData} from '@/interfaces/ButtonData';
 import SectionTextContent from "./ui/SectionTextContent.astro";
 
-const {id, title, subtitle, paragraph, button, image, color=false, direction="flex-row"} = Astro.props as About
+const {slug, title, subtitle, paragraph, button, image, color=false, direction="flex-row"} = Astro.props as About
 const SectionTextContentData = {title, subtitle, paragraph, direction}
 
 const url = import.meta.env.STRAPI_URL;
@@ -18,7 +18,7 @@ console.log("direction", direction)
         lg:py-20 lg:px-[4.5rem]`,
         {"bg-ocre-30": color},
         {"lg:flex-row-reverse": !direction},
-    ]} id={id}>
+    ]} id={slug}>
     <!-- Text box -->
      <SectionTextContent {...SectionTextContentData}>
         <slot></slot>
@@ -26,7 +26,7 @@ console.log("direction", direction)
     
     <!-- Image -->
      
-    <div class:list=` h-[85vh] w-full 
+    <div class:list=`h-fit min-h-[63vh] md:h-[75vh] lg:h-[85vh] w-full 
         lg:w-[40%] bg-cover` style=`background: url(${url}${image.url}); background-position-x: center; background-position-y: start; background-repeat: no-repeat`>
     </div>
 

@@ -36,7 +36,7 @@
   /* Text global styles */
   .h1-hero{
     @apply text-ocre-140 mt-[4rem] font-MrsSaintDelafield
-    text-xl text-[8rem] sm:text-[10rem] md:text-xl md:text-[14rem]
+    text-xl text-[7.2rem] sm:text-[10rem] md:text-xl md:text-[14rem]
     transition-all;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out
@@ -142,11 +142,11 @@
   }
 
   .reviewCard{
-    @apply flex flex-col w-[280px] h-fit items-center text-center rounded-[20px];
+    @apply flex flex-col w-[280px] h-fit items-center text-center rounded-[20px] ;
     padding: 20px 22px;
     justify-content: flex-end;
 
-    background: linear-gradient(180deg, #FFF 10.5%, #FCF0DF 100%);
+    background: linear-gradient(180deg, #FFF 10.5%, #fcf5ed 100%);
     box-shadow: 0px 4px 64px 0px #DED2C3;
 
   }
