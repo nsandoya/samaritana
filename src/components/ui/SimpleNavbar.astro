@@ -8,6 +8,9 @@ import type { ButtonData } from '@/interfaces/ButtonData';
 
 import books from '@/assets/data/books.json';
 import volunteering from '@/assets/data/volunteering.json'
+import Dropdown from './Dropdown.astro';
+import DesktopDropdownMenu from './DesktopDropdownMenu.astro';
+import MobileDropdownMenu from './MobileDropdownMenu.astro';
 
 
 const links = [
@@ -21,8 +24,6 @@ const links = [
 
 const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BASE_URL}#connect`}
 
-const currentPath = Astro.url.pathname
-console.log("Desde navbar", currentPath)
 ---
 
 <nav class="bg-orange-50 w-full fixed z-10">
@@ -35,13 +36,15 @@ console.log("Desde navbar", currentPath)
         <!-- Mobile menu trigger -->
         <BurgerMenuButton />
        
-
         <!-- Desktop Menu -->
         <div class="hidden md:flex md:items-center lg:space-x-8 text-center ml-[4.2rem] ">
             {links.map((link, index) => (
                     <div class="py-2 px-2 space-y-2">
                         {link.text === 'Libros' ? (
-                            <div>
+                            <Dropdown title="Libros" textSize="text-lg">
+                                <DesktopDropdownMenu optionsList={books} title="Libros"/>
+                            </Dropdown>
+                            /* <div>
                                 <p class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Libros ▾</p>
                                 <ul class="drop-menu mt-2 space-y-1 absolute hidden
                                     bg-white rounded-xl top-9">
@@ -58,10 +61,13 @@ console.log("Desde navbar", currentPath)
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </div> */
                         ) : (
                         link.text === 'Voluntariado' ? (
-                            <div>
+                            <Dropdown title="Voluntariado" textSize="text-lg"/>
+                                <DesktopDropdownMenu optionsList={volunteering} title="Voluntariado"/>
+                            
+                                /* <div>
                                 <p class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Voluntariado ▾</p>
                                 <ul class="drop-menu mt-2 space-y-1 absolute hidden
                                     bg-white rounded-xl top-9">
@@ -76,7 +82,7 @@ console.log("Desde navbar", currentPath)
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </div> */
                         ) : (
                             <Link {...link} size='text-lg sm:text-base' />
                         ))}
@@ -98,7 +104,10 @@ console.log("Desde navbar", currentPath)
                 {links.map((link, index) => (
                     <div class="py-2 px-4 space-y-2">
                         {link.text === 'Libros' ? (
-                            <div class="text-center">
+                            <Dropdown title="Libros" textSize="text-[1.5rem]">
+                                <MobileDropdownMenu optionsList={books} title="Libros"/>
+                            </Dropdown>
+                            /* <div class="text-center">
                                 <p class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Libros ▾</p>
                                 <ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl hidden">
                                     {books.map((book) => (
@@ -112,12 +121,15 @@ console.log("Desde navbar", currentPath)
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </div> */
                         ) :
 
                         
                         link.text === 'Voluntariado' ? (
-                            <div class="text-center">
+                            <Dropdown title="Voluntariado" textSize="text-[1.5rem]">
+                                <MobileDropdownMenu optionsList={volunteering} title="Voluntariado"/>
+                            </Dropdown>
+                            /* <div class="text-center">
                                 <p class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Voluntariado ▾</p>
                                 <ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl hidden">
                                     {volunteering.map((item) => (
@@ -130,8 +142,8 @@ console.log("Desde navbar", currentPath)
                                             </a>
                                         </li>
                                     ))}
-                                </ul>
-                            </div>
+                                </ul
+                            </div> */
                         ) : (
                             <Link {...link} size='text-[1.5rem]' />
                         )}
