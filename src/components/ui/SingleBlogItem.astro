@@ -2,8 +2,11 @@
 
 import { marked } from "marked";
 import { formatDistance, format } from 'date-fns';
+
+import type {BlogPost} from '@/interfaces/BlogPost'
+
 const { post } = Astro.props;
-const { featuredImage, title, content, author, readingTime, publishedAt } = post;
+const { featuredImage, title, content, author, readingTime, publishedAt, category } = post as BlogPost;
 
 const url = import.meta.env.STRAPI_URL;
 const authorImage = author.bioImage?.url || null;
@@ -11,11 +14,16 @@ const postImage = post.featuredImage?.url || null;
 
 ---
 <div class="container mx-auto py-10">
-  <div class="my-4 text-center">
-    <h1 class="text-center text-4xl leading-tight text-gray-900 my-4 font-bold">
+  <div class="my-16 text-center">
+    <!-- <div class="w-full text-left uppercase px-8">
+    </div> -->
+    <p class=" text-ocre-120 uppercase text-[1.5rem] tracking-[0.15rem] px-8 leading-none font-bold cursor-pointer">
+      {category.Name}
+    </p>
+    <h1 class="h3-connect font-playfairdisplay text-[3rem] md:text-[3.5rem]  text-4xl leading-tight my-4 px-8 font-bold">
       {title}
     </h1>
-    <div class="text-gray-500 flex justify-center items-center space-x-2">
+    <div class="text-[1.2rem] px-8 flex justify-center items-center space-x-2">
       <span class="flex space-x-2 items-center overflow-hidden">
         <img
           class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
@@ -25,29 +33,30 @@ const postImage = post.featuredImage?.url || null;
           alt="author picture"
         />
 
-        <p class="font-medium text-xs text-gray-600 cursor-pointer">
+        <p class="font-medium  cursor-pointer">
           {author?.name}
         </p>
       </span>
 
       <span>&middot;</span>
       <span>{format(new Date(publishedAt), 'dd/MM/yyyy')}</span>
-      <span>&middot;</span>
-      <span>{readingTime}</span>
+      <!-- <span>&middot;</span>
+      <span>{readingTime}</span> -->
     </div>
   </div>
-  <div class="rounded-md h-full w-full overflow-hidden">
+
+  <div class="rounded-md h-full w-full lg:w-[90%] mx-auto overflow-hidden px-8">
     <img
-      class="object-cover w-full h-full"
+      class="object-cover h-full w-full rounded-xl"
       src={postImage
         ? url + postImage
         : "https://via.placeholder.com/1080"}
     />
+    <article class=" prose w-full md:w-[95%] my-12 text-ocreNeutral-130 ">
+      <div class="rich-text" set:html={marked.parse(content)}  /> 
+    </article>  
   </div>
 
-  <article class=" prose max-w-full w-full my-4">
-    <div class="rich-text" set:html={marked.parse(content)}  /> 
-  </article>  
 </div> 
 
 

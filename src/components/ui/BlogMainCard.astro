@@ -8,7 +8,7 @@ import { formatDistance, format } from 'date-fns';
 const url = import.meta.env.STRAPI_URL;
 
 const  {post}  = Astro.props as EntirePost;
-const { slug, featuredImage, title, excerpt, content, author, documentId, publishedAt } = post;
+const { slug, featuredImage, title, excerpt, content, author, documentId, publishedAt, category } = post;
 const {bioImage: authorImage} = author;
 const postImage = featuredImage.url || null;
 
