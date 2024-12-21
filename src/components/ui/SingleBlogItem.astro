@@ -52,7 +52,7 @@ const postImage = post.featuredImage?.url || null;
         ? url + postImage
         : "https://via.placeholder.com/1080"}
     />
-    <article class=" prose w-full md:w-[95%] my-12 text-ocreNeutral-130 ">
+    <article class=" prose w-full md:w-[95%] my-12 text-gray-800 ">
       <div class="rich-text" set:html={marked.parse(content)}  /> 
     </article>  
   </div>

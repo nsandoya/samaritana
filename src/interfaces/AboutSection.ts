@@ -10,5 +10,6 @@ export interface About {
     button?: ButtonData,
     image: ImageData,
     direction?: string,
+    sectionTitle?: string,
     color?: boolean
 }

@@ -30,7 +30,7 @@ console.log(Astro.props)
 
 <BookPageLayout {title}>   
     <!-- Book main info -->
-    <AboutSection {...booksData} direction="flex-row-reverse">
+    <AboutSection {...booksData} direction="" sectionTitle="books">
         <div class="flex flex-row items-center justify-left">
             {links?.map((link:BookLinks) => (
                 <div class="mr-4">

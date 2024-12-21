@@ -214,7 +214,7 @@
 
   /* Typographic replacements */
   article .rich-text p {
-    @apply mb-8 text-xl leading-relaxed ;
+    @apply mb-8 text-xl leading-relaxed  text-ocreNeutral-130;
   }
 
   /* Emphasis */
