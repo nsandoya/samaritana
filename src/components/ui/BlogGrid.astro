@@ -7,7 +7,7 @@ const { posts } = Astro.props;
 
 ---
 
-<div class="grid grid-cols-3 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-fit  mx-auto my-10 gap-8">
   {
     posts && posts.length > 0 ? (
       posts.map((post: BlogPost, index:string) => <BlogGridItem key={index} post={post} />)

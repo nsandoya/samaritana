@@ -17,12 +17,6 @@
     src: url('../assets/fonts/PlayfairDisplay.ttf') format('truetype');
 }
 
-/* .mrs-saint-delafield-regular {
-  font-family: "Mrs Saint Delafield", cursive;
-  font-weight: 400;
-  font-style: normal;
-} */
-
 
 @layer base {
   :root {
@@ -41,6 +35,13 @@
     transition-duration: 300ms;
     transition-timing-function: ease-in-out
   }
+  .h1-blog-banner{
+    @apply text-ocre-140 mt-[4rem] font-MrsSaintDelafield
+    text-xl text-[7.5rem]  md:text-xl md:text-[10rem] 
+    transition-all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out
+  }
 
   h2{
     @apply text-ocre-130 font-playfairdisplay text-[50px] tracking-[2.8px] leading-snug 
@@ -51,6 +52,9 @@
 
   .h3-hero{
     @apply text-ocreNeutral-120  font-playfairdisplay uppercase tracking-[6.4px] text-[1.35rem] md:text-[1.75rem]
+  }
+  .h3-blog-banner{
+    @apply text-ocreNeutral-120  font-playfairdisplay uppercase tracking-[6.4px] text-xl text-[1.1rem] md:text-[1.35rem] ml-4
   }
 
   .h3-normal{
@@ -108,6 +112,12 @@
     background-position: center;
   }
 
+  .blogBanner{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url("http://localhost:1337/uploads/blog_banner_ae57dc6e29.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
   .about-img{
     /* background: url("/samaritana/img/about_me.png"); */
@@ -162,6 +172,18 @@
 
   
   /* Blog */
+  .blogSingleCard{
+    @apply  rounded-md overflow-hidden  p-8 transition-transform min-w-[240px] max-w-[340px] h-auto mx-auto md:mx-0;
+    background: linear-gradient(180deg, #FFF 10.5%, #faf3e9 100%);
+    box-shadow: 0px 4px 24px 0px #e9e9ee;
+  }
+
+  .blogMainCard{
+    @apply grid grid-cols-1 md:grid-cols-2 rounded-md overflow-hidden gap-5 md:gap-10 p-8 transition-transform w-[84%] h-auto md:h-[440px] mx-auto md:mx-0;
+    background: linear-gradient(180deg, #FFF 10.5%, #faf3e9 100%);
+    box-shadow: 0px 4px 24px 0px #e9e9ee;
+  }
+
   article .rich-text h1 {
     @apply text-4xl font-bold mb-8 text-gray-800;
   }

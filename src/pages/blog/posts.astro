@@ -1,11 +1,16 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 import BlogGrid from "@/components/ui/BlogGrid.astro";
+import BlogMainCard from '@/components/ui/BlogMainCard.astro'
 
 import { getBlogPosts, initializePostsStore } from "../api/posts";
+import BlogBanner from "@/components/ui/BlogBanner.astro";
+import ContactSection from "@/components/ContactSection.astro";
 
 // Get posts and save them in store
 const posts = await initializePostsStore()
+
+//console.log("Blog posts", posts)
 
 if (!posts || posts.length === 0) {
   console.error("No se encontraron posts en el store");
@@ -15,6 +20,18 @@ if (!posts || posts.length === 0) {
 
 ---
 
-<MainLayout title="Welcome to Astro.">
-  <BlogGrid posts={posts} />
+<MainLayout title="Samaritana Blog">
+  <BlogBanner ></BlogBanner>
+  <!-- <div class="w-[84%] mx-auto my-8">
+    <h2 class="h2-connect leading-[3rem]">Destacado de la semana</h2>
+  </div> -->
+  <div class="w-full flex flex-row justify-center mt-10">
+    <BlogMainCard post={posts[0]}></BlogMainCard>
+  </div>
+  
+  <div class="w-[84%] mx-auto my-8 text-center md:text-left">
+    <h2 class="h2-connect leading-[3rem]">Más para leer</h2>
+  </div>
+  <BlogGrid posts={posts.slice(1)} />
+  <ContactSection></ContactSection>
 </MainLayout>

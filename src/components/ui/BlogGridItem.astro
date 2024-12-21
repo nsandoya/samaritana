@@ -1,5 +1,7 @@
 ---
 import type { Author, BlogPost, FeaturedImage, EntirePost, ImageData } from "@/interfaces/BlogPost";
+import PrimaryButton from "../shared/PrimaryButton.astro";
+import type { ButtonData } from "@/interfaces/ButtonData";
 
 const url = import.meta.env.STRAPI_URL;
 
@@ -8,12 +10,17 @@ const { slug, featuredImage, title, excerpt, author, documentId } = post;
 const {bioImage: authorImage} = author;
 const postImage = featuredImage.url || null;
 
+const btnData: ButtonData = {
+  title: "Leer artículo",
+  link: `${import.meta.env.BASE_URL}blog/post/${documentId}`
+}
+
 ---
 
 <div
-  class="rounded-md overflow-hidden shadow-sm p-4 transition-transform h-auto"
+  class="blogSingleCard"
 >
-  <a href={`/post/${slug}`}>
+  <a href={btnData.link}>
     <div class="rounded-md h-48 w-full overflow-hidden">
       <img
         class="object-cover w-full h-full"
@@ -23,33 +30,27 @@ const postImage = featuredImage.url || null;
       />
     </div>
 
-    <div>
-      <h1 class="my-2 font-bold text-xl text-gray-900">{title}</h1>
-      <p class="my-2 text-gray-700 line-clamp-3">{excerpt}</p>
+    <div class="my-5">
+      <h3 class="h3-normal font-playfairdisplay text-ocreNeutral-150 my-2 font-bold text-xl text-center md:text-left">{title}</h3>
+      <p class="my-2 line-clamp-3 text-ocreNeutral-120 font-gabarito text-center md:text-left">{excerpt}</p>
     </div>
 
     <div class="flex justify-between my-4 items-center">
-      <div class="flex space-x-2 items-center overflow-hidden">
+      <div class="flex space-x-2 justify-center md:justify-start items-center overflow-hidden">
         <img
-          class="inline-block h-8 w-8 rounded-full ring-2 ring-white "
-          src={authorImage
+            class="inline-block h-8 w-8 rounded-full ring-2 ring-white "
+            src={authorImage
             ? url + authorImage.url
             : "https://via.placeholder.com/1080"}
-          alt="author picture"
+            alt="author picture"
         />
 
-        <p class="font-medium text-xs text-gray-600 cursor-pointer">
-          {author?.name}
+        <p class="font-medium text-xs text-ocreNeutral-110 cursor-pointer">
+            {author?.name}
         </p>
-      </div>
-
-      <div class="inline-flex rounded-md">
-        <a
-          href={`${import.meta.env.BASE_URL}blog/post/${documentId}`}
-          class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-400"
-        >
-          Read article
-        </a>
+    </div>
+      <div class="w-fit mx-auto md:mx-0 md:ml-auto">
+        <PrimaryButton {...btnData}/>
       </div>
     </div>
   </a>
