@@ -91,7 +91,7 @@
 
   /* Component styles */
   .btn{
-    @apply flex items-center w-fit px-3 py-2 rounded-[1.2rem] 
+    @apply flex items-center w-fit  px-3 py-2 rounded-[1.2rem] 
     font-semibold text-sm
     hover:cursor-pointer
   }

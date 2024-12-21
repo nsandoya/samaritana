@@ -26,7 +26,7 @@ if (!posts || posts.length === 0) {
     <h2 class="h2-connect leading-[3rem]">Destacado de la semana</h2>
   </div> -->
   <div class="w-full flex flex-row justify-center mt-10">
-    <BlogMainCard post={posts[0]}></BlogMainCard>
+    <BlogMainCard post={posts.reverse()[0]}></BlogMainCard>
   </div>
   
   <div class="w-[84%] mx-auto my-8 text-center md:text-left">

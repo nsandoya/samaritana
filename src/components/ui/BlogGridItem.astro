@@ -3,10 +3,12 @@ import type { Author, BlogPost, FeaturedImage, EntirePost, ImageData } from "@/i
 import PrimaryButton from "../shared/PrimaryButton.astro";
 import type { ButtonData } from "@/interfaces/ButtonData";
 
+import { formatDistance, format } from 'date-fns';
+
 const url = import.meta.env.STRAPI_URL;
 
 const  {post}  = Astro.props as EntirePost;
-const { slug, featuredImage, title, excerpt, author, documentId } = post;
+const { slug, featuredImage, title, excerpt, author, documentId, publishedAt } = post;
 const {bioImage: authorImage} = author;
 const postImage = featuredImage.url || null;
 
@@ -32,7 +34,9 @@ const btnData: ButtonData = {
 
     <div class="my-5">
       <h3 class="h3-normal font-playfairdisplay text-ocreNeutral-150 my-2 font-bold text-xl text-center md:text-left">{title}</h3>
+
       <p class="my-2 line-clamp-3 text-ocreNeutral-120 font-gabarito text-center md:text-left">{excerpt}</p>
+      
     </div>
 
     <div class="flex justify-between my-4 items-center">
@@ -45,8 +49,9 @@ const btnData: ButtonData = {
             alt="author picture"
         />
 
-        <p class="font-medium text-xs text-ocreNeutral-110 cursor-pointer">
+        <p class="font-medium text-xs text-ocreNeutral-110 cursor-pointer flex flex-col">
             {author?.name}
+            <span>{format(new Date(publishedAt), 'dd/MM/yyyy')}</span>
         </p>
     </div>
       <div class="w-fit mx-auto md:mx-0 md:ml-auto">
