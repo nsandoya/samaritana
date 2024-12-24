@@ -6,11 +6,13 @@ import Link from '../shared/Link.astro';
 
 import type { ButtonData } from '@/interfaces/ButtonData';
 
-import books from '@/assets/data/books.json';
-import volunteering from '@/assets/data/volunteering.json'
+//import books from '@/assets/data/books.json';
+//import volunteering from '@/assets/data/volunteering.json'
 import Dropdown from './Dropdown.astro';
 import DesktopDropdownMenu from './DesktopDropdownMenu.astro';
 import MobileDropdownMenu from './MobileDropdownMenu.astro';
+import { getBooks } from '@/pages/api/books';
+import { getVolunteerings } from '@/pages/api/volunteering';
 
 
 const links = [
@@ -21,6 +23,10 @@ const links = [
   { text: 'Blog', href: `${import.meta.env.BASE_URL}blog/posts` },
 ];
 
+const {body:books}= await getBooks();
+const {body:volunteering}= await getVolunteerings();
+//const {} = booksData
+//console.log("Books Data", booksData)
 
 const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BASE_URL}#connect`}
 
@@ -44,45 +50,10 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
                             <Dropdown title="Libros" textSize="text-lg">
                                 <DesktopDropdownMenu optionsList={books} title="Libros"/>
                             </Dropdown>
-                            /* <div>
-                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Libros ▾</p>
-                                <ul class="drop-menu mt-2 space-y-1 absolute hidden
-                                    bg-white rounded-xl top-9">
-                                    {books.map((book) => (
-                                        <li class="flex flex-col items-start">
-                                            <a 
-                                                href={`${import.meta.env.BASE_URL}libros/${book.path}`} 
-                                                class:list={["block text-sm text-ocreNeutral-120 hover:text-ocre-110 px-4 py-2",
-                                                    {}
-                                                ]}
-                                            >
-                                                {book.title}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div> */
                         ) : (
                         link.text === 'Voluntariado' ? (
                             <Dropdown title="Voluntariado" textSize="text-lg"/>
                                 <DesktopDropdownMenu optionsList={volunteering} title="Voluntariado"/>
-                            
-                                /* <div>
-                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-lg sm:text-base"}>Voluntariado ▾</p>
-                                <ul class="drop-menu mt-2 space-y-1 absolute hidden
-                                    bg-white rounded-xl top-9">
-                                    {volunteering.map((item) => (
-                                        <li class="flex flex-col items-start">
-                                            <a 
-                                                href={`${import.meta.env.BASE_URL}voluntariado/${item.path}`} 
-                                                class="block text-sm text-ocreNeutral-120 hover:text-ocre-110 px-4 py-2"
-                                            >
-                                                {item.title}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div> */
                         ) : (
                             <Link {...link} size='text-lg sm:text-base' />
                         ))}
@@ -107,21 +78,6 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
                             <Dropdown title="Libros" textSize="text-[1.5rem]">
                                 <MobileDropdownMenu optionsList={books} title="Libros"/>
                             </Dropdown>
-                            /* <div class="text-center">
-                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Libros ▾</p>
-                                <ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl hidden">
-                                    {books.map((book) => (
-                                        <li>
-                                            <a 
-                                                href={`${import.meta.env.BASE_URL}libros/${book.path}`} 
-                                                class="block text-lg text-ocreNeutral-120 hover:text-ocre-110 px-4 py-1 "
-                                            >
-                                                {book.title}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div> */
                         ) :
 
                         
@@ -129,21 +85,6 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
                             <Dropdown title="Voluntariado" textSize="text-[1.5rem]">
                                 <MobileDropdownMenu optionsList={volunteering} title="Voluntariado"/>
                             </Dropdown>
-                            /* <div class="text-center">
-                                <p class:list={"drop-menu-trigger a-link cursor-pointer text-[1.5rem] "}>Voluntariado ▾</p>
-                                <ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl hidden">
-                                    {volunteering.map((item) => (
-                                        <li>
-                                            <a 
-                                                href={`${import.meta.env.BASE_URL}voluntariado/${item.path}`} 
-                                                class="block text-lg text-ocreNeutral-120 hover:text-ocre-110 px-4 py-1 "
-                                            >
-                                                {item.title}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul
-                            </div> */
                         ) : (
                             <Link {...link} size='text-[1.5rem]' />
                         )}

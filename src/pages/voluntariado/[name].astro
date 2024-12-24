@@ -5,6 +5,7 @@ import VolunteeringLayout from "@/layouts/VolunteeringLayout.astro";
 import BlogTextContent from "@/components/ui/BlogTextContent.astro";
 
 import type { Volunteering } from "@/interfaces/Volunteering";
+import { baseUrl } from "../helpers/url";
 
 export async function getStaticPaths() {
     const {body:volunteerings} = await getVolunteerings()
@@ -15,7 +16,8 @@ export async function getStaticPaths() {
     })) || [];
 }
 
-const url = import.meta.env.STRAPI_URL;
+const url:string = baseUrl();
+//const url = import.meta.env.STRAPI_URL;
 
 const { props } = Astro.props;
 const { title, subtitle, slogan, paragraph, image, links } = props as Volunteering;

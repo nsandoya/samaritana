@@ -8,7 +8,7 @@ const currentPath = Astro.url.pathname;
     {optionsList.map((item:any) => (
         <li>
             <a 
-                href={`${import.meta.env.BASE_URL}${title.toLowerCase()}/${item.path}`} 
+                href={`${import.meta.env.BASE_URL}${title.toLowerCase()}/${item.slug}`} 
                 class:list={[`block text-lg text-ocreNeutral-120 text-center hover:text-ocre-110 px-4 py-1`,
                     {"text-ocre-110": currentPath.includes(title.toLowerCase())},
                 ]} 
