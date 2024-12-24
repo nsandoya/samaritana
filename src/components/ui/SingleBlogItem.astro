@@ -4,11 +4,13 @@ import { marked } from "marked";
 import { formatDistance, format } from 'date-fns';
 
 import type {BlogPost} from '@/interfaces/BlogPost'
+import { baseUrl } from "@/pages/helpers/url";
 
 const { post } = Astro.props;
 const { featuredImage, title, content, author, readingTime, publishedAt, category } = post as BlogPost;
 
-const url = import.meta.env.STRAPI_URL;
+//const url = import.meta.env.STRAPI_URL;
+const url = baseUrl()
 const authorImage = author.bioImage?.url || null;
 const postImage = post.featuredImage?.url || null;
 

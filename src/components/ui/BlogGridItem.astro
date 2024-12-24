@@ -5,7 +5,10 @@ import type { ButtonData } from "@/interfaces/ButtonData";
 
 import { formatDistance, format } from 'date-fns';
 
-const url = import.meta.env.STRAPI_URL;
+import { baseUrl } from "@/pages/helpers/url";
+
+//const url = import.meta.env.STRAPI_URL;
+const url:string = baseUrl()
 
 const  {post}  = Astro.props as EntirePost;
 const { slug, featuredImage, title, excerpt, author, documentId, publishedAt, category } = post;

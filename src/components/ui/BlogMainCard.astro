@@ -4,8 +4,11 @@ import PrimaryButton from "../shared/PrimaryButton.astro";
 import type { ButtonData } from "@/interfaces/ButtonData";
 
 import { formatDistance, format } from 'date-fns';
+import { baseUrl } from "@/pages/helpers/url";
 
-const url = import.meta.env.STRAPI_URL;
+//const url = import.meta.env.STRAPI_URL;
+const url:string = baseUrl()
+
 
 const  {post}  = Astro.props as EntirePost;
 const { slug, featuredImage, title, excerpt, content, author, documentId, publishedAt, category } = post;
