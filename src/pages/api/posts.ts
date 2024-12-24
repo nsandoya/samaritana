@@ -45,6 +45,7 @@ export async function initializePostsStore() {
   let  posts = blogPostsStore.get();
   if (!posts || posts.length === 0) {
     const { body } = await getBlogPosts() as any
+    console.log("Posts a guardar en el store", body)
     blogPostsStore.set(body);
     posts = blogPostsStore.get()
   }

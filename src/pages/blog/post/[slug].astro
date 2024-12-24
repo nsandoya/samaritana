@@ -12,7 +12,8 @@ import { blogPostsStore } from "@/store/posts";
 
 export async function getStaticPaths() {
     // Get posts and save them in store
-    const posts = await initializePostsStore()
+    const {body: posts} = await getBlogPosts()
+    //const posts = await initializePostsStore()
 
     if (!posts || posts.length === 0) {
       console.error("No se encontraron posts en el store");

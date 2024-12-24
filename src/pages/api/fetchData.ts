@@ -1,5 +1,6 @@
 import qs from "qs";
-const baseUrl = import.meta.env.STRAPI_URL;
+//const baseUrl = import.meta.env.STRAPI_URL;
+const baseUrl = "https://samaritana-blog.onrender.com"
 
 export async function fetchData(fields:Object, page:string) {
   const query = qs.stringify(
