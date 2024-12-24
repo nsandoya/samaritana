@@ -6,14 +6,20 @@ import type { ButtonData } from "@/interfaces/ButtonData";
 import { formatDistance, format } from 'date-fns';
 
 import { baseUrl } from "@/pages/helpers/url";
+import { getMedia } from "@/pages/helpers/fetchMedia";
 
 //const url = import.meta.env.STRAPI_URL;
-const url:string = baseUrl()
+const url:string = baseUrl();
+
 
 const  {post}  = Astro.props as EntirePost;
 const { slug, featuredImage, title, excerpt, author, documentId, publishedAt, category } = post;
-const {bioImage: authorImage} = author;
-const postImage = featuredImage.url || null;
+
+const authorImage = await getMedia(author.bioImage?.url, author.bioImage?.name);
+const postImage = await getMedia(post.featuredImage?.url, post.featuredImage?.name);
+
+//const {bioImage: authorImage} = author;
+//const postImage = featuredImage.url || null;
 
 const btnData: ButtonData = {
   title: "Leer artículo",
@@ -30,7 +36,7 @@ const btnData: ButtonData = {
       <img
         class="object-cover w-full h-full"
         src={postImage
-          ? url + postImage
+          ? postImage //url + postImage
           : "https://via.placeholder.com/1080"}
       />
     </div>
@@ -47,7 +53,7 @@ const btnData: ButtonData = {
         <img
             class="inline-block h-8 w-8 rounded-full ring-2 ring-white "
             src={authorImage
-            ? url + authorImage.url
+            ? authorImage //url + authorImage
             : "https://via.placeholder.com/1080"}
             alt="author picture"
         />

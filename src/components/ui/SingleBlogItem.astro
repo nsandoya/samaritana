@@ -5,14 +5,18 @@ import { formatDistance, format } from 'date-fns';
 
 import type {BlogPost} from '@/interfaces/BlogPost'
 import { baseUrl } from "@/pages/helpers/url";
+import { getMedia } from "@/pages/helpers/fetchMedia";
 
 const { post } = Astro.props;
 const { featuredImage, title, content, author, readingTime, publishedAt, category } = post as BlogPost;
 
 //const url = import.meta.env.STRAPI_URL;
-const url = baseUrl()
-const authorImage = author.bioImage?.url || null;
-const postImage = post.featuredImage?.url || null;
+const url = baseUrl();
+const authorImage = await getMedia(author.bioImage?.url, author.bioImage?.name);
+const postImage = await getMedia(post.featuredImage?.url, post.featuredImage?.name);
+
+//const authorImage = author.bioImage?.url || null;
+//const postImage = post.featuredImage?.url || null;
 
 ---
 <div class="container mx-auto py-10">
@@ -30,7 +34,7 @@ const postImage = post.featuredImage?.url || null;
         <img
           class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
           src={authorImage
-            ? url + authorImage
+            ? authorImage //url + authorImage
             : "https://via.placeholder.com/1080"}
           alt="author picture"
         />
@@ -51,7 +55,7 @@ const postImage = post.featuredImage?.url || null;
     <img
       class="object-cover h-full w-full rounded-xl"
       src={postImage
-        ? url + postImage
+        ? postImage //url + postImage
         : "https://via.placeholder.com/1080"}
     />
     <article class=" prose w-full md:w-[95%] my-12 text-gray-800 ">

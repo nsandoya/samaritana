@@ -2,10 +2,12 @@
 import { baseUrl } from "@/pages/helpers/url";
 
 //const url = import.meta.env.STRAPI_URL;
-const url:string = baseUrl()
+const url:string = baseUrl();
+//const img = await getMedia(image.url, image.name);
+
 ---
 
-<section class="blogBanner flex w-full h-[55vh] items-center" style=`background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url(${url}/uploads/blog_banner_ae57dc6e29.png);`>
+<section class="blogBanner flex w-full h-[55vh] items-center" style=`background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url("https://res.cloudinary.com/samaritana/image/upload/v1735075863/blog_banner_ae57dc6e29.png");`>
     <div class="flex flex-col gap-16 w-full h-fit mt-52 justify-center items-center text-center mb-[8rem]">
         <h1 class="h1-blog-banner">Samaritana</h1>
         <h3 class="h3-blog-banner uppercase">Historias y Reflexiones</h3>

@@ -11,7 +11,7 @@ import ContactSection from "@/components/ContactSection.astro";
 //const posts = await initializePostsStore()
 const {body: posts} = await getBlogPosts()
 
-console.log("Blog posts", posts)
+//console.log("Blog posts", posts)
 
 if (!posts || posts.length === 0) {
   console.error("No se encontraron posts en el store");

@@ -13,7 +13,10 @@ import { getMedia } from "@/pages/helpers/fetchMedia";
 
 //const url = import.meta.env.STRAPI_URL;
 const url:string = baseUrl();
-const {img} = await getMedia(url, image.id);
+//console.log("Img content",image)
+const img = await getMedia(image.url, image.name);
+
+//console.log("Imagen Cloudinary",img)
 
 //console.log("Desde componente",`${url}/${img.url}`)
 
@@ -30,7 +33,7 @@ const {img} = await getMedia(url, image.id);
     <!-- Image -->
      
     <div class:list=`h-fit min-h-[63vh] md:h-[75vh] lg:h-[85vh] w-full 
-        lg:w-[40%] bg-cover` style=`background: url(${url}${img.url}); background-position-x: center; background-position-y: start; background-repeat: no-repeat`>
+        lg:w-[40%] bg-cover` style=`background: url(${img}); background-position-x: center; background-position-y: start; background-repeat: no-repeat`>
     </div>
     <!-- Text box -->
      <SectionTextContent {...SectionTextContentData}>
