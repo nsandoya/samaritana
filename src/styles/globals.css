@@ -113,7 +113,7 @@
   }
 
   .blogBanner{
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url("http://localhost:1337/uploads/blog_banner_ae57dc6e29.png");
+    /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url("/samaritana/img/blog_banner_ae57dc6e29.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
