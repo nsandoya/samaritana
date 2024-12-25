@@ -7,7 +7,12 @@ on:
     branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
-
+env:
+  # Set global env vars
+    CLOUDINARY_NAME: ${{ vars.CLOUDINARY_NAME }}
+    CLOUDINARY_KEY: ${{ vars.CLOUDINARY_KEY }}
+    CLOUDINARY_SECRET: ${{ vars.CLOUDINARY_SECRET }} 
+          
 # Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
@@ -28,10 +33,10 @@ jobs:
           # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
       - name: Build the Astro project
         run: |
-          echo "CLOUDINARY_NAME: ${{ env.CLOUDINARY_NAME }}" >> .env
-          echo "CLOUDINARY_KEY: ${{ env.CLOUDINARY_KEY }}" >> .env
-          #echo "STRAPI_API_SECRET=${{ secrets.STRAPI_SECRET }}" >> .env
-          #npm run build
+          echo "Cloudinary Name: $CLOUDINARY_NAME"
+          echo "Cloudinary Key: $CLOUDINARY_KEY"
+          echo "Cloudinary Secret: $CLOUDINARY_SECRET"
+          #yarn build
 
   deploy:
     needs: build
