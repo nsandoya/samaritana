@@ -34,8 +34,7 @@ async function searchImageByName(filename:any) {
     const response = await cloudinary.search
       .expression(`filename:${filename}`)
       .execute();
-
-    console.log("Respuesta de Strapi",response.resources);
+      
     return response.resources //as Resource[];
   } catch (error) {
     console.error('Error buscando la imagen:', error);

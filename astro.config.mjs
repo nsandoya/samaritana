@@ -4,6 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 import tailwind from '@astrojs/tailwind';
 
+import alpinejs from '@astrojs/alpinejs';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://nsandoya.github.io/',
@@ -13,10 +15,7 @@ export default defineConfig({
       'import.meta.env.STRAPI_URL': process.env.STRAPI_URL,
     },
   },
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    sitemap()
-  ],
+  integrations: [tailwind({
+    applyBaseStyles: false,
+  }), sitemap(), alpinejs()],
 });

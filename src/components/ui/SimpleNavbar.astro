@@ -1,16 +1,13 @@
 ---
-import PrimaryButton from '../shared/PrimaryButton.astro';
 import CloseButton from '../shared/CloseButton.astro';
 import BurgerMenuButton from '../shared/BurgerMenuButton.astro';
-import Link from '../shared/Link.astro';
 
 import type { ButtonData } from '@/interfaces/ButtonData';
-
-//import books from '@/assets/data/books.json';
-//import volunteering from '@/assets/data/volunteering.json'
 import Dropdown from './Dropdown.astro';
 import DesktopDropdownMenu from './DesktopDropdownMenu.astro';
 import MobileDropdownMenu from './MobileDropdownMenu.astro';
+import PrimaryButton from '../shared/PrimaryButton.astro';
+import Link from '../shared/Link.astro';
 import { getBooks } from '@/pages/api/books';
 import { getVolunteerings } from '@/pages/api/volunteering';
 
@@ -25,119 +22,111 @@ const links = [
 
 const {body:books}= await getBooks();
 const {body:volunteering}= await getVolunteerings();
-//const {} = booksData
-//console.log("Books Data", booksData)
 
 const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BASE_URL}#connect`}
 
 ---
+<nav x-data="{
+        openMenu: false,
 
-<nav class="bg-orange-50 w-full fixed z-10">
+        toggleMenu() {
+            if (this.openMenu) {
+                return this.closeMenu()
+            }
+            this.openMenu = true
+        },
+
+        closeMenu() {
+            if (this.openMenu) {
+                return this.openMenu = false
+            }
+        }
+    }" 
+    class="bg-orange-50 w-full fixed z-10">
+
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-        <!-- Temporary icon -->
-        <a href=`${import.meta.env.BASE_URL}` class="flex a-link ">
-            <div class="flex w-[32px] h-[32px] rounded-full bg-ocre-110 justify-center items-center px-3 py-1"><span class="text-ocre-30 font-bold">S</span></div>
+        <!-- Ícono -->
+        <a href={`${import.meta.env.BASE_URL}`} class="flex a-link">
+            <div class="flex w-[32px] h-[32px] rounded-full bg-ocre-110 justify-center items-center px-3 py-1">
+                <span class="text-ocre-30 font-bold">S</span>
+            </div>
         </a>
 
-        <!-- Mobile menu trigger -->
-        <BurgerMenuButton />
-       
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex md:items-center lg:space-x-8 text-center ml-[4.2rem] ">
-            {links.map((link, index) => (
-                    <div class="py-2 px-2 space-y-2">
-                        {link.text === 'Libros' ? (
-                            <Dropdown title="Libros" textSize="text-lg">
-                                <DesktopDropdownMenu optionsList={books} title="Libros"/>
-                            </Dropdown>
-                        ) : (
-                        link.text === 'Voluntariado' ? (
-                            <Dropdown title="Voluntariado" textSize="text-lg"/>
-                                <DesktopDropdownMenu optionsList={volunteering} title="Voluntariado"/>
-                        ) : (
-                            <Link {...link} size='text-lg sm:text-base' />
-                        ))}
-                    </div>
-                ))}
-        </div>   
+        <!-- Botón del menú móvil -->
+        <a
+        x-ref="burgerMenu"
+        @click="toggleMenu()" 
+        :aria-expanded="openMenu"
+        :aria-controls="$id('dropdown-button')"
+        class="w-fit">
+            <BurgerMenuButton />    
+        </a>
 
-        <div class:list={"hidden md:flex md:items-center lg:space-x-8"}>
+        <!-- Menú Desktop -->
+        <div class="hidden md:flex md:items-center lg:space-x-8 text-center ml-[4.2rem]">
+            {links.map((link) => (
+                <div class="py-2 px-2 space-y-2">
+                    {link.text === 'Libros' ? (
+                        <Dropdown title="Libros" textSize="text-lg">
+                            <DesktopDropdownMenu optionsList={books} title="Libros" />
+                        </Dropdown>
+                    ) : link.text === 'Voluntariado' ? (
+                        <Dropdown title="Voluntariado" textSize="text-lg">
+                            <DesktopDropdownMenu optionsList={volunteering} title="Voluntariado" />
+                        </Dropdown>
+                    ) : (
+                        <Link href={link.href} text={link.text} size="text-lg sm:text-base" />
+                    )}
+                </div>
+            ))}
+        </div>
+
+        <div class="hidden md:flex md:items-center lg:space-x-8">
             <PrimaryButton {...ctaBtnData} />
         </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-orange-100 transform -translate-x-full transition-transform duration-300 md:hidden">
-        <!-- Botón de cerrar -->
-        <CloseButton />
-        <!-- Links -->
+    <!-- Menú móvil -->
+    <div 
+        x-ref="dropdown-menu"
+        x-show="openMenu"
+        x-transition:enter="transition-transform duration-300 ease-in-out"
+        x-transition:enter-start="transform -translate-x-full" 
+        x-transition:enter-end="transform translate-x-0"          
+        x-transition:leave="transition-transform duration-300 ease-in-out"
+        x-transition:leave-start="transform translate-x-0"        
+        x-transition:leave-end="transform -translate-x-full"      
+        x-on:click.outside="close($refs.burgerMenu)"
+        :id="$id('dropdown-button')"
+        x-cloak
+        class="fixed top-0 left-0 w-full h-full bg-orange-100  md:hidden"
+        >
+        
+        <a @click="closeMenu()" class="w-fit" >
+            <CloseButton />
+        </a>
+
         <ul class="flex flex-col items-center justify-center h-full p-4">
-                {links.map((link, index) => (
-                    <div class="py-2 px-4 space-y-2">
-                        {link.text === 'Libros' ? (
-                            <Dropdown title="Libros" textSize="text-[1.5rem]">
-                                <MobileDropdownMenu optionsList={books} title="Libros"/>
-                            </Dropdown>
-                        ) :
-
-                        
-                        link.text === 'Voluntariado' ? (
-                            <Dropdown title="Voluntariado" textSize="text-[1.5rem]">
-                                <MobileDropdownMenu optionsList={volunteering} title="Voluntariado"/>
-                            </Dropdown>
-                        ) : (
-                            <Link {...link} size='text-[1.5rem]' />
-                        )}
-                    </div>
-                ))}
-    
-                <div class="mt-[6rem]">
-                    <PrimaryButton {...ctaBtnData} size='text-lg px-4' title='Conectemos' /> 
+            {links.map((link) => (
+                <div class="py-2 px-4 space-y-2">
+                    {link.text === 'Libros' ? (
+                        <Dropdown title="Libros" textSize="text-[1.5rem]">
+                            <MobileDropdownMenu optionsList={books} title="Libros" />
+                        </Dropdown>
+                    ) : link.text === 'Voluntariado' ? (
+                        <Dropdown title="Voluntariado" textSize="text-[1.5rem]">
+                            <MobileDropdownMenu optionsList={volunteering} title="Voluntariado" />
+                        </Dropdown>
+                    ) : (
+                        <Link href={link.href} text={link.text} size="text-[1.5rem]" />
+                    )}
                 </div>
+            ))}
 
+            <div class="mt-[6rem]">
+                <PrimaryButton {...ctaBtnData} size="text-lg px-4" title="Conectemos" />
+            </div>
         </ul>
     </div>
 </nav>
 
-<script>
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    const dropMenuTriggers = document.querySelectorAll('.drop-menu-trigger');
-    const dropMenus = document.querySelectorAll('.drop-menu');
-    const links = document.querySelectorAll('a');
-
-    
-    dropMenuTriggers.forEach((trigger, index) => {
-        const menu = dropMenus[index];
-        trigger.addEventListener('click', () => {
-            // Cerrar todos los menús desplegables excepto el actual
-            dropMenus.forEach((otherMenu, otherIndex) => {
-                if (otherIndex !== index) {
-                    otherMenu.classList.add('hidden');
-                }
-            });
-
-            // Alternar la visibilidad del menú actual
-            menu.classList.toggle('hidden'); 
-        });
-    });
-    
-    links.forEach((a, index) => {
-        a.addEventListener('click', () => {
-            mobileMenu?.classList.add('-translate-x-full'); 
-        });
-    });
-
-    // Mostrar el menú móvil
-    mobileMenuButton?.addEventListener('click', () => {
-        mobileMenu?.classList.remove('-translate-x-full');
-    });
-
-    // Ocultar el menú móvil
-    closeMenuButton?.addEventListener('click', () => {
-        mobileMenu?.classList.add('-translate-x-full');
-    });
-
-</script>
