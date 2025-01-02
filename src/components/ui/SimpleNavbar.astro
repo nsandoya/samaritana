@@ -30,17 +30,8 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
         openMenu: false,
 
         toggleMenu() {
-            if (this.openMenu) {
-                return this.closeMenu()
-            }
-            this.openMenu = true
+            !this.openMenu ? this.openMenu = !this.openMenu : this.openMenu = false
         },
-
-        closeMenu() {
-            if (this.openMenu) {
-                return this.openMenu = false
-            }
-        }
     }" 
     class="bg-orange-50 w-full fixed z-10">
 
@@ -102,7 +93,7 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
         class="fixed top-0 left-0 w-full h-full bg-orange-100  md:hidden"
         >
         
-        <a @click="closeMenu()" class="w-fit" >
+        <a @click="toggleMenu()" class="w-fit" >
             <CloseButton />
         </a>
 

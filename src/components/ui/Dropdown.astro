@@ -4,9 +4,21 @@ const {title, textSize} = Astro.props;
 const currentPath = Astro.url.pathname;
 
 ---
-<div>
-    <p class:list={[`drop-menu-trigger a-link text-center cursor-pointer ${textSize} transition-all ease-in-out`,
+<div x-data="{
+    visible: false,
+    
+    close(focusAfter) {
+        if (! this.visible) return
+        this.visible = false
+        focusAfter && focusAfter.focus()
+    }
+}">
+    <p x-on:click="!visible ? visible = !visible : close()"
+        x-on:click.outside="close($refs.dropdownMenu)"
+        class:list={[`drop-menu-trigger a-link text-center cursor-pointer ${textSize} transition-all ease-in-out md:text-base`,
         {"text-ocre-110": currentPath.includes(title.toLowerCase())},
     ]}>{title} ▾</p>
-    <slot ></slot>
+    <div x-show="visible" x-ref="dropdownMenu">
+        <slot ></slot>
+    </div>
 </div>
