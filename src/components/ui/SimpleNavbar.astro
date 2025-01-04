@@ -10,6 +10,7 @@ import PrimaryButton from '../shared/PrimaryButton.astro';
 import Link from '../shared/Link.astro';
 import { getBooks } from '@/pages/api/books';
 import { getVolunteerings } from '@/pages/api/volunteering';
+import OffcanvasMenu from './OffcanvasMenu.astro';
 
 
 const links = [
@@ -23,16 +24,20 @@ const links = [
 const {body:books}= await getBooks();
 const {body:volunteering}= await getVolunteerings();
 
-const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BASE_URL}#connect`}
+const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BASE_URL}#connect`};
+
+const offcanvasData = {links, ctaBtnData, books, volunteering}
 
 ---
-<nav x-data="{
+<nav 
+    x-data="{
         openMenu: false,
 
         toggleMenu() {
-            !this.openMenu ? this.openMenu = !this.openMenu : this.openMenu = false
-        },
+        this.openMenu = !this.openMenu;
+        }
     }" 
+
     class="bg-orange-50 w-full fixed z-10">
 
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
@@ -45,11 +50,9 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
 
         <!-- Botón del menú móvil -->
         <a
-        x-ref="burgerMenu"
-        @click="toggleMenu()" 
-        :aria-expanded="openMenu"
-        :aria-controls="$id('dropdown-button')"
-        class="w-fit">
+            x-ref="burgerMenu"
+            @click="toggleMenu()"
+            class="w-fit md:hidden">
             <BurgerMenuButton />    
         </a>
 
@@ -77,47 +80,6 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
         </div>
     </div>
 
-    <!-- Menú móvil -->
-    <div 
-        x-ref="dropdown-menu"
-        x-show="openMenu"
-        x-transition:enter="transition-transform duration-300 ease-in-out"
-        x-transition:enter-start="transform -translate-x-full" 
-        x-transition:enter-end="transform translate-x-0"          
-        x-transition:leave="transition-transform duration-300 ease-in-out"
-        x-transition:leave-start="transform translate-x-0"        
-        x-transition:leave-end="transform -translate-x-full"      
-        x-on:click.outside="close($refs.burgerMenu)"
-        :id="$id('dropdown-button')"
-        x-cloak
-        class="fixed top-0 left-0 w-full h-full bg-orange-100  md:hidden"
-        >
-        
-        <a @click="toggleMenu()" class="w-fit" >
-            <CloseButton />
-        </a>
-
-        <ul class="flex flex-col items-center justify-center h-full p-4">
-            {links.map((link) => (
-                <div class="py-2 px-4 space-y-2">
-                    {link.text === 'Libros' ? (
-                        <Dropdown title="Libros" textSize="text-[1.5rem]">
-                            <MobileDropdownMenu optionsList={books} title="Libros" />
-                        </Dropdown>
-                    ) : link.text === 'Voluntariado' ? (
-                        <Dropdown title="Voluntariado" textSize="text-[1.5rem]">
-                            <MobileDropdownMenu optionsList={volunteering} title="Voluntariado" />
-                        </Dropdown>
-                    ) : (
-                        <Link href={link.href} text={link.text} size="text-[1.5rem]" />
-                    )}
-                </div>
-            ))}
-
-            <div class="mt-[6rem]">
-                <PrimaryButton {...ctaBtnData} size="text-lg px-4" title="Conectemos" />
-            </div>
-        </ul>
-    </div>
+    <OffcanvasMenu offcanvasData={offcanvasData} />
 </nav>
 

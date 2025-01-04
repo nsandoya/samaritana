@@ -105,6 +105,11 @@
     hover:bg-ocre-100 hover:text-ocre-30 hover:outline-none
   }
 
+  /* Avoids undesired offcanvas menu 'blink' when closing */
+  [x-cloak] {
+    display: none !important;
+}
+
   .hero{
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FDF2DE 100%), url("/samaritana/img/book_mockup.png");
     background-size: cover;

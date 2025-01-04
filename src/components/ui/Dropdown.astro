@@ -13,12 +13,27 @@ const currentPath = Astro.url.pathname;
         focusAfter && focusAfter.focus()
     }
 }">
-    <p x-on:click="!visible ? visible = !visible : close()"
-        x-on:click.outside="close($refs.dropdownMenu)"
-        class:list={[`drop-menu-trigger a-link text-center cursor-pointer ${textSize} transition-all ease-in-out md:text-base`,
-        {"text-ocre-110": currentPath.includes(title.toLowerCase())},
-    ]}>{title} ▾</p>
-    <div x-show="visible" x-ref="dropdownMenu">
+    <div class="flex flex-row justify-center">
+        <p @click="!visible ? visible = !visible : close()"
+            @click.outside="close($refs.dropdownMenu)"
+            class:list={[`drop-menu-trigger a-link text-center cursor-pointer ${textSize} md:text-base`,
+            {"text-ocre-110": currentPath.includes(title.toLowerCase())},
+        ]}>{title} 
+            <div
+                class="w-fit flex flex-row items-center transition-all duration-200"
+                :class=`visible ? 'transform rotate-180 ' 
+                : 'transform rotate-0 '`
+            >
+                <span>▾</span>
+            </div>
+        </p>
+    </div>
+    <div 
+        x-ref="dropdownMenu"
+        x-show="visible"
+        x-transition
+        class="transform transition-transform duration-300"
+    >
         <slot ></slot>
     </div>
 </div>

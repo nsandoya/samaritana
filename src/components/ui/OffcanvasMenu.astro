@@ -1,0 +1,47 @@
+---
+import CloseButton from "../shared/CloseButton.astro"
+import Link from "../shared/Link.astro"
+import PrimaryButton from "../shared/PrimaryButton.astro"
+import Dropdown from "./Dropdown.astro"
+import MobileDropdownMenu from "./MobileDropdownMenu.astro"
+
+const { offcanvasData } = Astro.props;
+const { links, ctaBtnData, books, volunteering } = offcanvasData
+---
+<!-- Menú móvil -->
+<div 
+    x-cloak
+    x-bind:class="{
+        'translate-x-0 ': openMenu,
+        '-translate-x-full duration-400': !openMenu
+    }"
+
+    class="fixed top-0 left-0 w-full h-full bg-orange-100 transform transition-transform duration-300 md:hidden"
+>
+
+<a @click="toggleMenu()" class="w-fit" >
+    <CloseButton />
+</a>
+
+<ul class="flex flex-col items-center justify-center h-full p-4">
+    {links.map((link:any) => (
+        <div class="py-2 px-4 space-y-2">
+            {link.text === "Libros" ? (
+                <Dropdown title="Libros" textSize="text-[1.5rem]">
+                    <MobileDropdownMenu optionsList={books} title="Libros" />
+                </Dropdown>
+            ) : link.text === "Voluntariado" ? (
+                <Dropdown title="Voluntariado" textSize="text-[1.5rem]">
+                    <MobileDropdownMenu optionsList={volunteering} title="Voluntariado" />
+                </Dropdown>
+            ) : (
+                <Link href={link.href} text={link.text} size="text-[1.5rem]" />
+            )}
+        </div>
+    ))}
+
+    <div class="mt-[6rem]">
+        <PrimaryButton {...ctaBtnData} size="text-lg px-4" title="Conectemos" />
+    </div>
+</ul>
+</div>
