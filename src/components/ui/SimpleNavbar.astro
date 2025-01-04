@@ -28,7 +28,6 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
 ---
 <nav x-data="{
         openMenu: false,
-
         toggleMenu() {
             !this.openMenu ? this.openMenu = !this.openMenu : this.openMenu = false
         },
@@ -45,11 +44,10 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
 
         <!-- Botón del menú móvil -->
         <a
-        x-ref="burgerMenu"
-        @click="toggleMenu()" 
-        :aria-expanded="openMenu"
-        :aria-controls="$id('dropdown-button')"
-        class="w-fit">
+            x-ref="burgerMenu"
+            @click="toggleMenu()"
+            x-show="openMenu" 
+            class="w-fit">
             <BurgerMenuButton />    
         </a>
 
@@ -81,6 +79,7 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
     <div 
         x-ref="dropdown-menu"
         x-show="openMenu"
+        x-cloak
         x-transition:enter="transition-transform duration-300 ease-in-out"
         x-transition:enter-start="transform -translate-x-full" 
         x-transition:enter-end="transform translate-x-0"          
@@ -89,7 +88,6 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
         x-transition:leave-end="transform -translate-x-full"      
         x-on:click.outside="close($refs.burgerMenu)"
         :id="$id('dropdown-button')"
-        x-cloak
         class="fixed top-0 left-0 w-full h-full bg-orange-100  md:hidden"
         >
         
@@ -97,7 +95,7 @@ const ctaBtnData:ButtonData = {title: "Conectemos", link: `${import.meta.env.BAS
             <CloseButton />
         </a>
 
-        <ul class="flex flex-col items-center justify-center h-full p-4">
+        <ul @click="toggleMenu()" class="flex flex-col items-center justify-center h-full p-4">
             {links.map((link) => (
                 <div class="py-2 px-4 space-y-2">
                     {link.text === 'Libros' ? (
