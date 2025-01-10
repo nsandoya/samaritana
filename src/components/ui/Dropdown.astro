@@ -15,18 +15,26 @@ const currentPath = Astro.url.pathname;
 }"
     class="transition-all duration-200"
 >
-    <div class="flex flex-row justify-center">
+    <div class:list={[
+        "flex flex-row justify-center transition-all duration-300",
+        ]}>
         <p @click="!visible ? visible = !visible : close()"
             @click.outside="close($refs.dropdownMenu)"
             class:list={[`drop-menu-trigger a-link text-center cursor-pointer ${textSize} lg:text-base`,
             {"text-ocre-110": currentPath.includes(title.toLowerCase())},
-        ]}>{title} 
+        ]}>
+            {title} 
             <div
-                class="w-fit flex flex-row items-center transition-all duration-200"
-                :class=`visible ? 'transform rotate-180 ' 
-                : 'transform rotate-0 '`
+                class="w-fit flex flex-row items-center mx-2 font-semibold"
+                :class="!visible ? 'block' : 'hidden'"
             >
-                <span>▾</span>
+                <span>+</span>
+            </div>
+            <div
+                class="w-fit flex flex-row items-center mx-2 font-semibold"
+                :class="visible ? 'block' : 'hidden'"
+            >
+                <span>-</span>
             </div>
         </p>
     </div>
