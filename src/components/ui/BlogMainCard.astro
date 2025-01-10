@@ -6,6 +6,7 @@ import type { ButtonData } from "@/interfaces/ButtonData";
 import { formatDistance, format } from 'date-fns';
 import { baseUrl } from "@/pages/helpers/url";
 import { getMedia } from "@/pages/helpers/fetchMedia";
+import Avatar from "../shared/Avatar.astro";
 
 //const url = import.meta.env.STRAPI_URL;
 const url:string = baseUrl()
@@ -43,13 +44,7 @@ const btnData: ButtonData = {
         <!-- Body Card -->
         <div class="my-0 md:my-5">
             <div class="flex space-x-2 justify-center md:justify-start items-center overflow-hidden">
-                <img
-                    class="inline-block h-8 w-8 rounded-full ring-2 ring-white "
-                    src={authorImage
-                    ? authorImage //url + authorImage
-                    : "https://via.placeholder.com/1080"}
-                    alt="author picture"
-                />
+                <Avatar {authorImage}/> 
         
                 <p class="font-medium text-xs text-ocreNeutral-110 cursor-pointer flex flex-row space-x-2">
                   {author?.name}

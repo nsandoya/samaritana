@@ -1,0 +1,10 @@
+---
+const {authorImage} = Astro.props
+---
+<img
+    class="inline-block h-8 w-7 rounded-full ring-2 ring-white "
+    src={authorImage
+    ? authorImage //url + authorImage
+    : "https://via.placeholder.com/1080"}
+    alt="author picture"
+/>

@@ -6,6 +6,7 @@ import { formatDistance, format } from 'date-fns';
 import type {BlogPost} from '@/interfaces/BlogPost'
 import { baseUrl } from "@/pages/helpers/url";
 import { getMedia } from "@/pages/helpers/fetchMedia";
+import Avatar from "../shared/Avatar.astro";
 
 const { post } = Astro.props;
 const { featuredImage, title, content, author, readingTime, publishedAt, category } = post as BlogPost;
@@ -31,14 +32,7 @@ const postImage = await getMedia(post.featuredImage?.url, post.featuredImage?.na
     </h1>
     <div class="text-[1.2rem] px-8 flex justify-center items-center space-x-2">
       <span class="flex space-x-2 items-center overflow-hidden">
-        <img
-          class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
-          src={authorImage
-            ? authorImage //url + authorImage
-            : "https://via.placeholder.com/1080"}
-          alt="author picture"
-        />
-
+        <Avatar {authorImage}/> 
         <p class="font-medium  cursor-pointer">
           {author?.name}
         </p>
