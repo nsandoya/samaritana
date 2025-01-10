@@ -12,7 +12,6 @@ const fetchMedia = async (url:string) => {
         if (!response.ok) throw new Error(`Failed to fetch data: ${response.statusText}`);
         
         const data = await response.json();
-        //console.log("URL usada, fetchMedia", `${url}${page}`)
     
         return {img:data};
 
@@ -61,10 +60,9 @@ export const getMedia = async (imgUrl:string, imgName:string) => {
       const isValid = await isValidCloudinaryURL(queryUrl);
       // Si el link no es válido, se busca el link correcto:
       if(!isValid){
-        const resources = await searchImageByName(imgName)
+        const resources = await searchImageByName(imgName.split(".")[0])
         queryUrl = resources[0].url
       }
-      //console.log("Link de imagen",queryUrl)
       // Finalmente, se retorna el link a usar
       return queryUrl
 
