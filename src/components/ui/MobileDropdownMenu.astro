@@ -4,7 +4,7 @@ const {optionsList, title} = Astro.props;
 const currentPath = Astro.url.pathname;
 
 ---
-<ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl">
+<ul class="drop-menu mt-2 space-y-1 bg-ocre-30 rounded-xl transform transition-transform duration-400">
     {optionsList.map((item:any) => (
         <li>
             <a 

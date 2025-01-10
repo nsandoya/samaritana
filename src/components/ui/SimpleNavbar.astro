@@ -1,11 +1,9 @@
 ---
-import CloseButton from '../shared/CloseButton.astro';
 import BurgerMenuButton from '../shared/BurgerMenuButton.astro';
 
 import type { ButtonData } from '@/interfaces/ButtonData';
 import Dropdown from './Dropdown.astro';
 import DesktopDropdownMenu from './DesktopDropdownMenu.astro';
-import MobileDropdownMenu from './MobileDropdownMenu.astro';
 import PrimaryButton from '../shared/PrimaryButton.astro';
 import Link from '../shared/Link.astro';
 import { getBooks } from '@/pages/api/books';
@@ -41,23 +39,23 @@ const offcanvasData = {links, ctaBtnData, books, volunteering}
     class="bg-orange-50 w-full fixed z-10">
 
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-        <!-- Ícono -->
+        <!-- Logo -->
         <a href={`${import.meta.env.BASE_URL}`} class="flex a-link">
             <div class="flex w-[32px] h-[32px] rounded-full bg-ocre-110 justify-center items-center px-3 py-1">
                 <span class="text-ocre-30 font-bold">S</span>
             </div>
         </a>
 
-        <!-- Botón del menú móvil -->
+        <!-- Burger menu -->
         <a
             x-ref="burgerMenu"
             @click="toggleMenu()"
-            class="w-fit md:hidden">
+            class="w-fit block lg:hidden">
             <BurgerMenuButton />    
         </a>
 
-        <!-- Menú Desktop -->
-        <div class="hidden md:flex md:items-center lg:space-x-8 text-center ml-[4.2rem]">
+        <!-- Desktop menu -->
+        <div class="hidden lg:flex lg:items-center lg:space-x-8 text-center ml-[4.2rem]">
             {links.map((link) => (
                 <div class="py-2 px-2 space-y-2">
                     {link.text === 'Libros' ? (
@@ -75,11 +73,11 @@ const offcanvasData = {links, ctaBtnData, books, volunteering}
             ))}
         </div>
 
-        <div class="hidden md:flex md:items-center lg:space-x-8">
+        <div class="hidden lg:flex lg:items-center lg:space-x-8">
             <PrimaryButton {...ctaBtnData} />
         </div>
     </div>
-
+    <!-- Mobile menu -->
     <OffcanvasMenu offcanvasData={offcanvasData} />
 </nav>
 

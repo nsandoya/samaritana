@@ -12,11 +12,13 @@ const currentPath = Astro.url.pathname;
         this.visible = false
         focusAfter && focusAfter.focus()
     }
-}">
+}"
+    class="transition-all duration-200"
+>
     <div class="flex flex-row justify-center">
         <p @click="!visible ? visible = !visible : close()"
             @click.outside="close($refs.dropdownMenu)"
-            class:list={[`drop-menu-trigger a-link text-center cursor-pointer ${textSize} md:text-base`,
+            class:list={[`drop-menu-trigger a-link text-center cursor-pointer ${textSize} lg:text-base`,
             {"text-ocre-110": currentPath.includes(title.toLowerCase())},
         ]}>{title} 
             <div
@@ -30,9 +32,11 @@ const currentPath = Astro.url.pathname;
     </div>
     <div 
         x-ref="dropdownMenu"
-        x-show="visible"
-        x-transition
-        class="transform transition-transform duration-300"
+        x-bind:class="{
+            'block opacity-100 transform scale-100 transition-all duration-300 ease-in-out': visible,
+            'hidden opacity-0 transform scale-95 transition-all duration-300 ease-in-out': !visible
+          }"
+        class="transform transition-all duration-400"
     >
         <slot ></slot>
     </div>
