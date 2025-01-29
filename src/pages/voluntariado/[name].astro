@@ -5,7 +5,6 @@ import VolunteeringLayout from "@/layouts/VolunteeringLayout.astro";
 import BlogTextContent from "@/components/ui/BlogTextContent.astro";
 
 import type { Volunteering } from "@/interfaces/Volunteering";
-import { baseUrl } from "../helpers/url";
 import { getMedia } from "../helpers/fetchMedia";
 
 export async function getStaticPaths() {
@@ -17,15 +16,15 @@ export async function getStaticPaths() {
     })) || [];
 }
 
-const url:string = baseUrl();
-
-//const url = import.meta.env.STRAPI_URL;
 
 const { props } = Astro.props;
 const { title, subtitle, slogan, paragraph, image, links } = props as Volunteering;
 const volunteeringData = { title, subtitle, paragraph, image }
 
-const img = await getMedia(image.url, image.name);
+let img = null;
+if (image && image.url) {
+    img = await getMedia(image.url, image.name);
+}
 ---
 
 <VolunteeringLayout {title}>   

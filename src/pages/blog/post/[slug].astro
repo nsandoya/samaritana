@@ -6,9 +6,6 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import SingleBlogItem from "@/components/ui/SingleBlogItem.astro";
 
 import type { BlogPost } from "@/interfaces/BlogPost";
-import {initializePostsStore} from '@/pages/api/posts'
-import { blogPostsStore } from "@/store/posts";
-
 
 export async function getStaticPaths() {
     // Get posts and save them in store
